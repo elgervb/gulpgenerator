@@ -17,14 +17,14 @@ gulp.task('test', function() {
 gulp.task('php', function() {
 	return require('gulp-connect-php').server({
 		base: './',
-		port: 4000, 
+		port: 4001,
 		keepalive: true
 	});
 });
 gulp.task('browser-sync',['php'], function() {
     browserSync({
-        proxy: '127.0.0.1:8080',
-        port: 8081,
+        proxy: '127.0.0.1:4001',
+        port: 4000,
         open: false,
         notify: true
     });
@@ -32,8 +32,8 @@ gulp.task('browser-sync',['php'], function() {
 gulp.task('default', ['browser-sync'], function () {
     gulp.watch(['build/*.php'], [reload]);
 });
- 
-gulp.task('default', function(){
+
+gulp.task('test:watch', function(){
 	var path = require('path');
     gulp.watch('./**/*.php')
         .on("change", function(file) {
@@ -46,10 +46,6 @@ gulp.task('default', function(){
                 .on('error', notify.onError(notification('fail', 'phpunit')))
                 .pipe(notify(notification('pass', 'phpunit')));
         });
-});
-
-gulp.task('default', ['browser-sync'], function () {
-    gulp.watch(['./base/*.php'], [reload]);
 });
 
 function notification(status, pluginName, override) {
