@@ -4,6 +4,7 @@ namespace app;
 use compact\Context;
 use compact\IAppContext;
 use compact\routing\Router;
+use compact\handler\impl\json\JsonHandler;
 
 /**
  * The Application Context
@@ -36,7 +37,7 @@ class AppContext implements IAppContext
      */
     public function handlers(Context $ctx)
     {
-        //
+        $ctx->addHandler(new JsonHandler());
     }
 
     /**
