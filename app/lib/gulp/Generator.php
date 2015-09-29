@@ -18,7 +18,7 @@ class Generator {
 	 * @return \ArrayObject all available gulp tasks
 	 */
 	public function getAvaliableTasks(){
-		return JsonUtils::decode(file_get_contents(__DIR__ . '/tasks/available.json'));
+		return JsonUtils::decode(file_get_contents(__DIR__ . '/available.json'));
 	}
 	
 	/**
@@ -31,6 +31,7 @@ class Generator {
 	 */
 	public function getTask($name, array $vars){
 		$vm = $this->getTemplate($name);
+		$vm->{'name'} = $name; // supply default name
 		foreach($vars as $key => $value){
 			$vm->{$key} = $value;
 		}
@@ -46,7 +47,8 @@ class Generator {
 	 * @return \compact\mvvm\impl\ViewModel
 	 */
 	private function getTemplate($name){
-		$file = new \SplFileInfo(__DIR__ . DIRECTORY_SEPARATOR . 'tasks/' . $name . '.tpl');
+		
+		$file = new \SplFileInfo(__DIR__ . '/tasks/' . $name . '.tpl');
 		if (!is_file($file)){
 			throw new GulpException("Cannot fild template for task " . $name);
 		}

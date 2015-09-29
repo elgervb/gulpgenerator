@@ -15,3 +15,6 @@ include_once __DIR__ . '/../../vendor/elgervb/compact/classes/compact/ClassLoade
 compact\ClassLoader::create()
 ->addClassPath(__DIR__."/app")
 ->addClassPath(__DIR__."/app/lib");
+
+
+$_SERVER['REMOTE_ADDR'] = "localhost";
