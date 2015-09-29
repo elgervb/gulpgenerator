@@ -46,3 +46,4 @@ Temporary Items
 /vendor/*
 /composer.phar
 /composer.lock
+/vendor/
