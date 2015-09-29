@@ -1,0 +1,8 @@
+{
+	"tasks": [
+		{
+			"name": "clear-cache",
+			"vars": ["name"]    
+		}
+	]
+}
