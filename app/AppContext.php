@@ -20,10 +20,7 @@ class AppContext implements IAppContext
      */
     public function routes(Router $router)
     {
-        /**
-         * Show the upload form (with optionally uploaded image)
-         */
-        $router->add("^/$", function ()
+        $router->add("^/login$", function ()
         {
             return "Index";
         }, 'GET');
