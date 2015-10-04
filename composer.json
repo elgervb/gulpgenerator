@@ -1,6 +1,4 @@
 {
-	"name" : "elgervb/gulpgenerator",
-	"type" : "site",
 	"authors" : [{
 			"name" : "Elger van Boxtel",
 			"email" : "elgervb@gmail.com",
@@ -8,10 +6,18 @@
 			"role" : "developer"
 		}
 	],
+	"require" : {
+		"elgervb/compact" : "dev-master"
+	},
 	"require-dev" : {
 		"phpunit/phpunit" : "^4.8"
 	},
 	"support" : {
 		"email" : "elgervb@gmail.com"
-	}
+	},
+	"repositories" : [{
+			"type" : "vcs",
+			"url" : "https://github.com/elgervb/compact"
+		}
+	]
 }
