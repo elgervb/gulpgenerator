@@ -1,6 +1,7 @@
+/* global __dirname */
 var gulp = require('gulp'),
     notify  = require('gulp-notify'),
-    phpunit = require('gulp-phpunit')
+    phpunit = require('gulp-phpunit'),
     _       = require('lodash'),
     browserSync = require('browser-sync');
 
@@ -43,7 +44,9 @@ gulp.task('test:watch', function(){
         	var options = {debug: false, notify: true, stderr: true, filter: '/.*'+filename+'.*/i'};
             gulp.src('phpunit.xml')
                 .pipe(phpunit('', options))
-                .on('error', notify.onError(notification('fail', 'phpunit')))
+                .on('error', function(e){
+                    notify.onError(notification('fail', 'phpunit'));
+                })
                 .pipe(notify(notification('pass', 'phpunit')));
         });
 });
