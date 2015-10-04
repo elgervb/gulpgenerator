@@ -44,9 +44,7 @@ gulp.task('test:watch', function(){
         	var options = {debug: false, notify: true, stderr: true, filter: '/.*'+filename+'.*/i'};
             gulp.src('phpunit.xml')
                 .pipe(phpunit('', options))
-                .on('error', function(e){
-                    notify.onError(notification('fail', 'phpunit'));
-                })
+                .on('error', notify.onError(notification('fail', 'phpunit')))
                 .pipe(notify(notification('pass', 'phpunit')));
         });
 });
