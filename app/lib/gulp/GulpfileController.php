@@ -112,7 +112,7 @@ class GulpfileController
         
         if ($isEmpty) {
             return new HttpStatus(HttpStatus::STATUS_204_NO_CONTENT, array(
-                "message" => 'test'
+                "message" => 'no content'
             ));
         }
         
@@ -131,6 +131,7 @@ class GulpfileController
             ));
         }
         
+        // for whaterver reason...
         Logger::get()->logWarning("Could not save model " . get_class($model));
         return new HttpStatus(HttpStatus::STATUS_204_NO_CONTENT);
     }
