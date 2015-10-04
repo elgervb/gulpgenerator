@@ -41,10 +41,9 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
-/node_modules/
-/logs/
-/vendor/*
-/composer.phar
-/composer.lock
-/vendor/
-/app/db
+/server/node_modules/
+/server/logs/
+/server/vendor/*
+/server/composer.lock
+/server/vendor/
+/server/app/db
