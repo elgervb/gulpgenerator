@@ -18,14 +18,14 @@ gulp.task('test', function() {
 gulp.task('php', function() {
 	return require('gulp-connect-php').server({
 		base: './',
-		port: 4001,
+		port: 4011,
 		keepalive: true
 	});
 });
 gulp.task('browser-sync',['php'], function() {
     browserSync({
-        proxy: '127.0.0.1:4001',
-        port: 4000,
+        proxy: '127.0.0.1:4011',
+        port: 4010,
         open: false,
         notify: true
     });
