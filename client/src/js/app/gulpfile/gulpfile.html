@@ -1,0 +1,78 @@
+  <nav class="fixed-title">
+    <h2>tasks for {{package.name}}  <span class="version-number">({{package.version | semverFilter}})</span> </h2>
+  </nav>
+
+  <div class="msgbox page" ng-show="error">
+    <button class="close" type="button" ng-click="error='';">&times;</button>
+    <h4 class="title">Error.</h4>
+    <p>{{error}}</p>
+  </div>
+
+
+  <div class="task-list">
+
+    <div ng-hide="package.tasks">No active tasks present. <a ng-click="showAdd=!showAdd; addMode();">Add a new task now.</a></div>
+
+  <!-- iterate through the all tasks -->
+    <div class="task" ng-repeat="(key, task) in package.tasks" ng-class="{toggled: toggled==task}">
+
+      <div class="task-header">
+        <h2 ng-click="toggle(task)">
+          <a>{{task.name}}</a>
+        </h2>
+
+        <h3>{{task.description}}</h3>
+      </div>
+
+      <div class="task-body">
+        <div class="task-body-inner">
+          <!-- iterate through the configured fields -->
+          <div class="field clearfix" ng-repeat="(key, field) in task.fields">
+            
+            <label>{{field.name}}</label>
+
+            <!-- Show edit or read only field -->
+            <span ng-show="!scope.editmode" ng-bind="package.settings[field.name]"></span>
+            <input ng-show="scope.editmode" type="{{field.type}}" placeholder="{{field.name}}" ng-model="package.settings[field.name]" />
+          </div>
+        
+          <!-- Show a list of dependencies -->
+          <h3 class="dependencies" ng-show="task.dependencies.length">Dependencies</h3>
+          <ul ng-repeat="(key, dependency) in task.dependencies">
+            <li>{{dependency}}</li>
+          </ul>
+
+          <h3 class="no-task-specs" ng-hide="task.dependencies.length+task.fields.length">No specs for this task</h3>
+
+          <!-- Edit mode for this task -->
+          <a class="edit-toggle edit-btn" ng-show="!scope.editmode" ng-click="scope.editmode=!scope.editmode">+</a>
+          <a class="gulp-button edit-toggle close-btn" ng-show="scope.editmode" ng-click="scope.editmode=!scope.editmode">&times;</a>
+
+        </div>
+      </div>
+
+    </div>  
+
+  </div>
+
+  <div class="add-task-bar">
+    <a class="gulp-button add-btn" ng-click="showAdd=!showAdd; addMode();">+</a>
+    <a class="gulp-button generate-btn" href="/#/gulpfile/{{package.guid}}/generate" title="generate gulpfile">&rArr;</a>
+  </div>
+
+  <div class="add-task">
+    <div class="overlay" ng-show="showAdd">
+      
+      <a class="gulp-button close-btn" ng-click="showAdd=false">&times;</a>
+
+      <!-- iterate through the all tasks -->
+    <ul class="predefined">
+      <li ng-repeat="(key, task) in predefinedTasks" ng-click="select(task);" class="task"> 
+          <h2>{{task.type}}</h2> 
+          <p>{{task.description}}</p> 
+      </li>
+    </ul>
+
+    </div>
+
+  </div>

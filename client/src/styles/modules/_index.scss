@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'Fineliner Script';
+  src: url('/fonts/fineliner/Fineliner_Script.ttf');
+}
+
+.gulp-title{
+  font-family: "Fineliner Script", "Open Sans";
+  font-size: 6em;
+  font-weight: 300;
+  line-height: 1em;
+  margin-bottom: 10px;
+  text-shadow: none;
+}
+
+.gulp-subtitle{
+  opacity: 0;
+  animation:    fadeIn .5s ease-in .2s 1, 
+             slideInUp .5s ease-in .2s;
+  animation-fill-mode: forwards; // stay in last detected state (for opacity)
+  font-size: 2em;
+  margin-bottom: 50px;
+  
+}
+
+.btn-get-started{
+  animation:    fadeIn .8s ease-in .6s 1, 
+             slideInUp .8s ease-in .6s;
+  animation-fill-mode: forwards; // stay in last detected state (for opacity)
+  background-color: $white;
+  border: 1px solid $white;
+  border-radius: 3px;
+  font-size: 1.4em;
+  opacity: 0;
+  padding: 15px 20px 16px;
+  transition: all 0.4s ease 0s;
+
+  &:hover {
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+    background-color: $white;
+    border: 1px solid $white;
+  }
+}

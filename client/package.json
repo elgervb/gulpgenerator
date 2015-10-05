@@ -1,0 +1,88 @@
+{
+  "name": "gulpgenerator",
+  "version": "0.1.0",
+  "description": "Generator for gulp files",
+  "main": "gulpfile.js",
+  "keywords": [
+    "gulp",
+    "angular",
+    "gulp generator",
+    "gulpfile"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elgervb/gulpgenerator/"
+  },
+  "author": {
+    "name": "Elger van Boxtel",
+    "email": "elgervb@gmail.com",
+    "url": "http://elgervanboxtel.nl"
+  },
+  "bugs": {
+    "url": "https://github.com/elgervb/gulpgenerator/issues",
+    "email": "elgervb@gmail.com"
+  },
+  "settings": {
+    "src": "./src/",
+    "dist": "./dist/",
+    "reports": "./reports/",
+    "tests": "./tests/",
+    "serverport": 4000
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "2.9.3",
+    "del": "^2.0.2",
+    "gulp": "3.9.0",
+    "gulp-angular-protractor": "0.0.2",
+    "gulp-autoprefixer": "2.3.1",
+    "gulp-cache": "0.2.10",
+    "gulp-clean": "0.3.1",
+    "gulp-concat": "*",
+    "gulp-doxx": "0.0.4",
+    "gulp-flatten": "0.1.1",
+    "gulp-group-css-media-queries": "^1.0.0",
+    "gulp-htmlhint": "0.3.0",
+    "gulp-htmlmin": "1.1.3",
+    "gulp-if": "1.2.5",
+    "gulp-imagemin": "2.3.0",
+    "gulp-jscs": "2.0.0",
+    "gulp-jshint": "1.11.2",
+    "gulp-livereload": "3.8.0",
+    "gulp-minify-css": "1.2.0",
+    "gulp-ng-annotate": "1.1.0",
+    "gulp-notify": "2.2.0",
+    "gulp-plumber": "*",
+    "gulp-rename": "1.2.2",
+    "gulp-replace": "0.5.3",
+    "gulp-sass": "2.0.4",
+    "gulp-size": "1.2.3",
+    "gulp-sourcemaps": "*",
+    "gulp-strip-debug": "1.0.2",
+    "gulp-todo": "3.1.1",
+    "gulp-uglify": "1.4.1",
+    "gulp-util": "3.0.6",
+    "gulp-zip": "3.0.2",
+    "jasmine-core": "2.3.4",
+    "jshint-stylish": "*",
+    "karma": "0.13.9",
+    "karma-chrome-launcher": "0.2.0",
+    "karma-coverage": "^0.5.2",
+    "karma-firefox-launcher": "0.1.6",
+    "karma-htmlfile-reporter": "0.2.2",
+    "karma-ie-launcher": "0.2.0",
+    "karma-jasmine": "0.3.6",
+    "karma-ng-html2js-preprocessor": "*",
+    "karma-opera-launcher": "0.3.0",
+    "karma-phantomjs-launcher": "0.2.0",
+    "phantomjs": "^1.9.17",
+    "proxy-middleware": "0.14.0",
+    "q": "2.0.3",
+    "run-sequence": "1.1.2",
+    "vinyl-paths": "^2.0.0",
+    "yargs": "3.25.0"
+  }
+}

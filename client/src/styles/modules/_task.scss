@@ -1,0 +1,179 @@
+
+.fixed-title {
+    background: $white;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.3);
+    height: 80px;
+    left: 0;
+    line-height: 80px;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+
+    h2{
+      font-size: 3em;
+      font-weight: 500;
+      color: $font-color;
+    }
+}
+
+.task-list{
+  background: $white;
+  color: $dark;
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1);
+  margin: 100px auto 0;
+  max-width: 850px;
+  padding: 20px;
+}
+
+.predefined{
+  background-color: $white;
+  color: $dark;
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1);
+  margin: 100px auto 0;
+  max-width: 850px;
+  padding: 20px;
+  z-index: 1000;
+
+  .task{
+    margin: 1em;
+    padding: .5em;
+    
+    &:hover{
+      background: #e3e3e3;
+      cursor: pointer;
+    }
+  }
+}
+
+.task{
+
+  .task-header{
+    border-bottom: 1px solid #e3e3e3;
+    color: $black;
+    text-align: center;
+
+    h2{
+      cursor: pointer;
+      font-size: 3em;
+    
+      a{
+        color: $dark;
+      }
+      &:hover a{
+        border-bottom: 1px solid $dark;
+      }
+    }
+  }
+
+  .task-body{
+    background-color: $white;
+    color: $dark;
+    max-height: 0;
+    margin: 0 auto 2em;
+    overflow: hidden;
+    position: relative;
+    transition: max-height .2s ease;
+
+    .close-btn, .edit-btn{
+      font-size: 1.5em;
+      height: 2rem;
+      line-height: 2rem;
+      width: 2rem;
+    }
+    .edit-btn{
+      background: transparent url(../img/edit.png) no-repeat scroll center center / cover;
+      opacity: 0.7;
+      text-indent: -9999999px;
+    }
+    .close-btn{
+      border-color: $dark;
+      color: $dark;
+    }
+
+    .task-body-inner{
+      margin: 0 auto;
+      min-width: 320px;
+      width: 50%;
+    }
+
+    .field label{
+      width: 150px;
+    }
+
+    .field input[type=text]{
+      border: none;
+      border-bottom: 1px dotted $dark;
+      background-color: $white;
+      color: $black;
+    }
+
+    .edit-toggle{
+      position: absolute;
+      right: 5px;
+      top: 5px;
+    }
+  }
+
+  &.toggled{
+    background-color: #F0F0F0;
+
+    h2{
+      font-weight: 400;
+    }
+
+    .task-body{
+      border: 1px solid #F0F0F0;
+      max-height: 250px;
+      padding-bottom: 3em;
+    }
+  }
+  
+}
+
+.dependencies{
+  color: $gulp-red;
+  margin-top: 1em;
+}
+.no-task-specs{
+  text-align: center;
+}
+
+.add-task-bar{
+  margin-top: 3em;
+  text-align: center;
+
+  .add-btn{
+    margin-right: 1rem;
+  }
+  .add-btn, .generate-btn{
+    display: inline-block;
+    
+  }
+}
+
+.overlay {
+  background-color: rgba(207, 70, 70, .8);
+  display: block;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+
+  .close-btn{
+    position: fixed;
+    top: .5em;
+  }
+}
+
+.close-btn{
+  position: absolute;
+  right: .5em;
+  top: 5px;
+
+    &:hover{
+      transform: rotate(360deg);
+    }
+  }

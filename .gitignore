@@ -47,3 +47,7 @@ Temporary Items
 /server/composer.lock
 /server/vendor/
 /server/app/db
+/client/src/js/vendor
+/client/node_modules/
+/client/dist
+/client/reports
