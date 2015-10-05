@@ -1,3 +1,4 @@
+/* global angular */
 /**
  * API for:
  * interface Storage {
