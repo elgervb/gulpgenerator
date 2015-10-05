@@ -26,6 +26,10 @@ class AppContext implements IAppContext
             return GulpfileController::instance()->post();
         }, 'POST');
         
+        $router->add("^/predefinedtasks$", function () {
+        	return GulpfileController::instance()->getPredefinedTasks();
+        }, 'GET');
+        
         if (Context::get()->isLocal()){
         	Context::get()->http()->getResponse()->setCORSHeaders();
         	$router->add(".*", function(){
