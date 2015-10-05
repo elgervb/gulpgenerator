@@ -111,9 +111,9 @@ class GulpfileController
         }
         
         if ($isEmpty) {
-            return new HttpStatus(HttpStatus::STATUS_204_NO_CONTENT, array(
+            return new HttpStatus(HttpStatus::STATUS_204_NO_CONTENT, new Json(array(
                 "message" => 'no content'
-            ));
+            )));
         }
         
         $guid = Random::guid();
@@ -126,9 +126,9 @@ class GulpfileController
                 return new HttpStatus(HttpStatus::STATUS_201_CREATED, new Json($model));
             }
         } catch (ValidationException $e) {
-            return new HttpStatus(HttpStatus::STATUS_422_UNPROCESSABLE_ENTITY, array(
+            return new HttpStatus(HttpStatus::STATUS_422_UNPROCESSABLE_ENTITY, new Json(array(
                 "message" => $e->getMessage()
-            ));
+            )));
         }
         
         // for whaterver reason...
