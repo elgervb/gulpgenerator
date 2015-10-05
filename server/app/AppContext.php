@@ -5,6 +5,7 @@ use compact\Context;
 use compact\IAppContext;
 use compact\routing\Router;
 use compact\handler\impl\json\JsonHandler;
+use gulp\GulpfileController;
 
 /**
  * The Application Context
@@ -20,11 +21,17 @@ class AppContext implements IAppContext
      */
     public function routes(Router $router)
     {
-        $router->add("^/login$", function ()
+        $router->add("^/gulpfile$", function ()
         {
-            return "Index";
-        }, 'GET');
+            return GulpfileController::instance()->post();
+        }, 'POST');
         
+        if (Context::get()->isLocal()){
+        	Context::get()->http()->getResponse()->setCORSHeaders();
+        	$router->add(".*", function(){
+        		return " ";
+        	}, 'OPTIONS');
+        }
     }
 
     /**
