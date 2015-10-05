@@ -46,7 +46,7 @@ class GulpFileControllerTest extends \PHPUnit_Framework_TestCase {
 	public function testPost201Created(){
 		$_POST['guid'] = Random::guid();
 		$_POST['version'] = 'v1.0.0';
-		$_POST['tasks'] = [['name' =>'copy', 'src'=>'./src', 'dist'=>'./dest']];
+		$_POST['tasks'] = [['name' =>'copy', 'description'=>'test gulpfile', 'src'=>'./src', 'dist'=>'./dest']];
 		$response = GulpfileController::instance()->post();
 	
 		$this->assertTrue($response instanceof HttpStatus);

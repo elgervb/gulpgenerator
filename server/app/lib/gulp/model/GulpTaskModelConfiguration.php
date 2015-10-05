@@ -26,7 +26,7 @@ class GulpTaskModelConfiguration extends DefaultModelConfiguration {
 		if ($this->validators === null){
 			$this->validators = new ValidatorList();
 			
-			$this->validators->register(new ModelFieldsNotNullValidator(["guid", "tasks", "version"]));
+			$this->validators->register(new ModelFieldsNotNullValidator(["guid", "name", "description", "version"]));
 		}
 		$this->validators->validate($model);
 	}
