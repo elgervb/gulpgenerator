@@ -7,6 +7,7 @@ use compact\routing\Router;
 use compact\handler\impl\json\JsonHandler;
 use gulp\GulpfileController;
 use compact\handler\impl\json\Json;
+use compact\handler\impl\download\DownloadHandler;
 
 /**
  * The Application Context
@@ -46,9 +47,9 @@ class AppContext implements IAppContext
 					"method" => "GET",
     				"desc" => "Get an existing gulpfile"
     			],
-    			"/gulpfile/:guid/generate" => [
+    			"/gulpfile/:guid/download" => [
 	    			"method" => "GET",
-	    			"desc" => "Generate the gulpfile"
+	    			"desc" => "Download the gulpfile"
     			],
     			"/gulpfile/:guid/tasks" => [
     				"method" => "PUT",
@@ -69,7 +70,7 @@ class AppContext implements IAppContext
         	return \gulp\GulpfileController::instance()->get($guid);
         }, 'GET');
         
-        $router->add("^/gulpfile/(".self::GUID_REGEX.")/generate$", function($guid){
+        $router->add("^/gulpfile/(".self::GUID_REGEX.")/download$", function($guid){
         	return \gulp\GulpfileController::instance()->download($guid);
         }, 'GET');
         
@@ -93,6 +94,9 @@ class AppContext implements IAppContext
     public function handlers(Context $ctx)
     {
         $ctx->addHandler(new JsonHandler());
+        
+        // Handle downloads
+        $ctx->addHandler(new DownloadHandler());
     }
 
     /**
@@ -102,6 +106,6 @@ class AppContext implements IAppContext
      */
     public function services(Context $ctx)
     {
-        //
+    	
     }
 }

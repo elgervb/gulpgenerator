@@ -1,7 +1,7 @@
 app.service('TaskService', function($http, BaseUrl) {
 
   var addTask = function(gulpfile, task) {
-    return $http.put(BaseUrl + 'tasks/' + gulpfile.guid, task)
+    return $http.put(BaseUrl + 'gulpfile/' + gulpfile.guid + "/tasks", task)
   },
   getPredefinedTasks = function() {
     return $http({
