@@ -31,7 +31,7 @@ gulp.task('browser-sync',['php'], function() {
     });
 });
 gulp.task('default', ['browser-sync'], function () {
-    gulp.watch(['build/*.php'], [reload]);
+    gulp.watch(['/**/*.php'], [reload]);
 });
 
 gulp.task('test:watch', function(){
