@@ -28,6 +28,13 @@ app.controller('GulpfileController', function($scope, $http, $routeParams, TaskS
       });
     }
   };
+  
+  /**
+   * Delete a task from the list
+   */
+  $scope.delete = function(task){
+      SharedData.removeTask(task);
+  };
 
   /**
    * Select a predifined task and copy it to the gulpfile

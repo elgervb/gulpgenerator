@@ -16,7 +16,6 @@ app.service('SharedData', function(StorageService) {
         patch: 1
       }
   },
-  gulpfile = {},
   addTask = function(task) {
     package.tasks.push(task);
     // Sort tasks
@@ -27,6 +26,11 @@ app.service('SharedData', function(StorageService) {
     store(package);
 
     return package;
+  },
+  removeTask = function(task) {
+    package.tasks = package.tasks.filter(function(value, index) {
+      return value.type !== task.type && value.name !== task.name;
+    });
   },
   store = function(obj) {
     package = obj;
@@ -47,6 +51,7 @@ app.service('SharedData', function(StorageService) {
 
   return {
     addTask: addTask,
+    removeTask: removeTask,
     store: store,
     load: load
   }
