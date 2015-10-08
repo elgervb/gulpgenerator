@@ -86,7 +86,7 @@ class GulpfileController
         
         $result = $db->search($sc);
         if ($result->count() > 0) {
-            return new HttpStatus(HttpStatus::STATUS_200_OK, new Json($result));
+            return new HttpStatus(HttpStatus::STATUS_200_OK, new Json($result->offsetGet(0)));
         }
         return new HttpStatus(HttpStatus::STATUS_204_NO_CONTENT);
     }

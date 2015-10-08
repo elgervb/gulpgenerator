@@ -33,27 +33,38 @@ class AppContext implements IAppContext
     		return new Json([
 				"/" => [
     				"method" => "GET",
-					"desc" => "Get routing info"
+					"desc" => "Get routing info",
+    				"return" => "this list"
     			],
     			"/predefinedtasks" => [
     				"method" => "GET",
-    				"desc" => "Get all predefined tasks"
+    				"desc" => "Get all predefined tasks",
+    				"return" => "array of tasks"
     			],
     			"/gulpfile" => [
     				"method" => "POST",
-    				"desc" => "Add a new gulpfile"
+    				"desc" => "Add a new gulpfile",
+    				"return" => "gulpfile object"
     			],
     			"/gulpfile/:guid" => [
 					"method" => "GET",
-    				"desc" => "Get an existing gulpfile"
+    				"desc" => "Get an existing gulpfile",
+    				"return" => "gulpfile object"
     			],
     			"/gulpfile/:guid/download" => [
 	    			"method" => "GET",
-	    			"desc" => "Download the gulpfile"
+	    			"desc" => "Download the gulpfile",
+    				"return" => "File"
     			],
     			"/gulpfile/:guid/tasks" => [
     				"method" => "PUT",
-    				"desc" => "Add a gulp task to an existing gulpfile"
+    				"desc" => "Add a gulp task to an existing gulpfile",
+    				"return" => "Task object"
+    			],
+    			"/gulpfile/:guid/tasks/:type/:name" => [
+    				"method" => "DELETE",
+    				"desc" => "Delete a gulp task",
+    				"return" => "The new task list"
     			]
     		]);
     	});
@@ -77,6 +88,10 @@ class AppContext implements IAppContext
         $router->add("^/gulpfile/(".self::GUID_REGEX.")/tasks$", function($guid){
         	return \gulp\GulpfileController::instance()->addtask($guid);
         }, 'PUT');
+        
+        $router->add("^/gulpfile/(".self::GUID_REGEX.")/tasks/(.*)/(.*)$", function($guid, $type, $name){
+        	return \gulp\GulpfileController::instance()->addtask($guid);
+        }, 'DELETE');
         
         if (Context::get()->isLocal()){
         	Context::get()->http()->getResponse()->setCORSHeaders();
