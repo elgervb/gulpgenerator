@@ -1,6 +1,6 @@
 {
-  "name": "skeletonSpa",
-  "description": "Skeleton for a Single Page Application using Gulp and AngularJS",
+  "name": "GulpGenerator",
+  "description": "Gulpfile generator - Assemble and manage your gulpfiles",
   "main": [
     "src/js/app/app.js",
     "src/styles/main.scss"
@@ -18,9 +18,8 @@
     "node"
   ],
   "keywords": [
-    "motion",
-    "physics",
-    "particles"
+    "gulp",
+    "generator"
   ],
   "authors": [
     "Elger van Boxtel <elgervb@gmail.com>"
