@@ -1,0 +1,74 @@
+
+  <messagebox title="'error'" msg="error"></messagebox>
+
+  <form class="new-gulpfile" name="form" novalidate>
+
+    <h2 ng-show="gulpfile.guid" class="guid">{{gulpfile.guid}}</h2>
+
+    <div class="group">
+      <h2>Application</h2>
+      <div class="field">
+        <label for="name">Name *</label>
+        <input type="text" id="name" placeholder="name of the application" ng-model="gulpfile.name" ng-model-options="{updateOn:'blur'}" autofocus required/> 
+      </div>
+      <div class="field">
+        <label for="description">Description *</label>
+        <textarea id="description" placeholder="description of the application" ng-model="gulpfile.description" required></textarea> 
+      </div>
+       <div class="field">
+        <label for="version">version *</label>
+        <input type="text" id="version-major" class="version" placeholder="major" ng-model="gulpfile.version.major" ng-model-options="{updateOn:'blur'}" required/> .
+        <input type="text" id="version-minor" class="version" placeholder="minor" ng-model="gulpfile.version.minor" ng-model-options="{updateOn:'blur'}" required/> .
+        <input type="text" id="version-patch" class="version" placeholder="patch" ng-model="gulpfile.version.patch" ng-model-options="{updateOn:'blur'}" required/> 
+      </div>
+    </div>
+
+    <div class="group" ng-show="gulpfile.name&&gulpfile.description">
+      <h3>Repository</h3>
+      <div class="field">
+        <label for="repository_type">Repository type</label>
+        <input type="text" id="repository_type" placeholder="repository type (eg. git)" ng-model="gulpfile.repository.type" /> 
+      </div>
+      <div class="field">
+        <label for="repository_url">Repository url</label>
+        <input type="url" id="repository_url" placeholder="repository url" ng-model="gulpfile.repository.url" /> 
+      </div>
+    </div>
+
+    <div class="group" ng-show="gulpfile.name&&gulpfile.description">
+      <h3>Author</h3>
+      <div class="field">
+        <label for="autor_name">Author name</label>
+        <input type="text" id="autor_name" placeholder="author name" ng-model="gulpfile.author.name" /> 
+      </div>
+      <div class="field">
+        <label for="autor_mail">Author mail</label>
+        <input type="email" id="autor_mail" placeholder="author mail" ng-model="gulpfile.author.mail" /> 
+      </div>
+      <div class="field">
+        <label for="autor_url">Author website</label>
+        <input type="url" id="autor_url" placeholder="author website" ng-model="gulpfile.author.url" /> 
+      </div>
+    </div>
+
+    <div class="group" ng-show="gulpfile.name&&gulpfile.description">
+      <h3>Settings</h3>
+      <div class="field">
+        <label for="settings_src">Source directory</label>
+        <input type="text" id="settings_src" placeholder="default source directory" ng-model="gulpfile.settings.src" /> 
+      </div>
+      <div class="field">
+        <label for="settings_dist">Destination directory</label>
+        <input type="text" id="settings_dist" placeholder="default destination directory" ng-model="gulpfile.settings.dest" /> 
+      </div>
+       <div class="field">
+        <label for="settings_report">Report directory</label>
+        <input type="text" id="settings_report" placeholder="default report directory" ng-model="gulpfile.settings.report" /> 
+      </div>
+    </div>
+
+    <div class="field">
+      <a class="btn-cancel btn-link" href="/#/">Cancel</a>
+      <button class="btn-save" ng-disabled="!form.$valid" ng-click="createGulpfile()">Continue</button>
+    </div>
+  </form>

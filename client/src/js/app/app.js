@@ -15,9 +15,9 @@ var app = angular.module('gulpgenerator', ['ngRoute'])
       templateUrl: '/js/app/index/index.html'
     })
     // Route for creating a new Gulpfile
-    .when('/gulpfile/new', {
+    .when('/gulpfile/create', {
       controller: 'NewGulpfileController',
-      templateUrl: '/js/app/gulpfile/new/new.html'
+      templateUrl: '/js/app/gulpfile/new.html'
     })
     // Route to add tasks to an existing gulpfile
     .when('/gulpfile/:guid', {

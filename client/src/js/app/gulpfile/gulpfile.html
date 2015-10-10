@@ -1,5 +1,5 @@
   <nav class="fixed-title">
-    <h2>tasks for {{package.name}}  <span class="version-number">({{package.version | semverFilter}})</span> </h2>
+    <h2>tasks for {{gulpfile.name}}  <span class="version-number">({{gulpfile.version | semverFilter}})</span> </h2>
   </nav>
 
   <div class="msgbox page" ng-show="error">
@@ -11,10 +11,10 @@
 
   <div class="task-list">
 
-    <div ng-hide="package.tasks">No active tasks present. <a ng-click="showAdd=!showAdd; addMode();">Add a new task now.</a></div>
+    <div ng-hide="gulpfile.tasks">No active tasks present. <a ng-click="showAdd=!showAdd; addMode();">Add a new task now.</a></div>
 
   <!-- iterate through the all tasks -->
-    <div class="task" ng-repeat="(key, task) in package.tasks" ng-class="{toggled: toggled==task}">
+    <div class="task" ng-repeat="(key, task) in gulpfile.tasks" ng-class="{toggled: toggled==task}">
 
       <div class="task-header">
         <h2 ng-click="toggle(task)">
@@ -32,8 +32,8 @@
             <label>{{field.name}}</label>
 
             <!-- Show edit or read only field -->
-            <span ng-show="!scope.editmode" ng-bind="package.settings[field.name]"></span>
-            <input ng-show="scope.editmode" type="{{field.type}}" placeholder="{{field.name}}" ng-model="package.settings[field.name]" />
+            <span ng-show="!scope.editmode" ng-bind="gulpfile.settings[field.name]"></span>
+            <input ng-show="scope.editmode" type="{{field.type}}" placeholder="{{field.name}}" ng-model="gulpfile.settings[field.name]" />
           </div>
         
           <!-- Show a list of dependencies -->
@@ -58,7 +58,7 @@
 
   <div class="add-task-bar">
     <a class="gulp-button add-btn" ng-click="showAdd=!showAdd; addMode();">+</a>
-    <a class="gulp-button generate-btn" href="/#/gulpfile/{{package.guid}}/generate" title="generate gulpfile">&rArr;</a>
+    <a class="gulp-button generate-btn" href="/#/gulpfile/{{gulpfile.guid}}/generate" title="generate gulpfile">&rArr;</a>
   </div>
 
   <div class="add-task">

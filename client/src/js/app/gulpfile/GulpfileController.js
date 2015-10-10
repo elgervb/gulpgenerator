@@ -1,9 +1,11 @@
 /**
  * Main controller
  */
-app.controller('GulpfileController', function($scope, $http, $routeParams, TaskService, SharedData, BaseUrl) {
+app.controller('GulpfileController', function($scope,  $routeParams, TaskService, SharedData) {
 
-  $scope.package = SharedData.load($routeParams.guid);
+  TaskService.getGulpfile($routeParams.guid).then(function(gulpfile){
+    $scope.gulpfile = gulpfile;
+  });
 
   $scope.scope = {};
   $scope.scope.editmode = false;
@@ -33,7 +35,9 @@ app.controller('GulpfileController', function($scope, $http, $routeParams, TaskS
    * Delete a task from the list
    */
   $scope.delete = function(task){
-      SharedData.removeTask(task);
+    $scope.gulpfile.tasks = $scope.package.tasks.filter(function(value, index) {
+      return value.type !== task.type && value.name !== task.name;
+    });
   };
 
   /**
