@@ -1,7 +1,10 @@
 app.service('TaskService', function($http, BaseUrl, $q, $log) {
 
   var addTask = function(gulpfile, task) {
-    return $http.put(BaseUrl + 'gulpfile/' + gulpfile.guid + "/tasks", task);
+    return $http.put(BaseUrl + 'gulpfile/' + gulpfile.guid + "/tasks", task)
+    .then(function(response){
+      return response.data;
+    });
   },
   createGulpfile = function(gulpfile){
     $log.debug('adding new gulpfile');

@@ -176,7 +176,7 @@ class GulpfileController
             
             $db->save($gulpfile);
             
-            return new HttpStatus(HttpStatus::STATUS_200_OK, new Json($task));
+            return new HttpStatus(HttpStatus::STATUS_200_OK, new Json($tasks));
         }
         
         return new HttpStatus(HttpStatus::STATUS_204_NO_CONTENT);

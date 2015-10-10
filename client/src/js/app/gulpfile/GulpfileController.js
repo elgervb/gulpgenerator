@@ -1,3 +1,4 @@
+/* global angular */
 /**
  * Main controller
  */
@@ -35,7 +36,7 @@ app.controller('GulpfileController', function($scope,  $routeParams, TaskService
    * Delete a task from the list
    */
   $scope.delete = function(task){
-    $scope.gulpfile.tasks = $scope.package.tasks.filter(function(value, index) {
+    $scope.gulpfile.tasks = $scope.gulpfile.tasks.filter(function(value, index) {
       return value.type !== task.type && value.name !== task.name;
     });
   };
@@ -48,10 +49,10 @@ app.controller('GulpfileController', function($scope,  $routeParams, TaskService
     task = angular.copy(task);
 
     // Add task
-    TaskService.addTask($scope.package, task)
-    .then(function(response) { // New task will be returned in response.data
-      SharedData.addTask(response.data);
-      $scope.toggle(response.data, true); // Force toggle to open the task
+    TaskService.addTask($scope.gulpfile, task)
+    .then(function(tasks) { // New task will be returned in response.dat
+    $scope.gulpfile.tasks = tasks;
+      $scope.toggle(task, true); // Force toggle to open the task
       $scope.scope.editmode = true;
       $scope.showAdd = false;
     }, function(data, status, headers, config) {

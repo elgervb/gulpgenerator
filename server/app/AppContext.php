@@ -59,7 +59,7 @@ class AppContext implements IAppContext
     			"/gulpfile/:guid/tasks" => [
     				"method" => "PUT",
     				"desc" => "Add a gulp task to an existing gulpfile",
-    				"return" => "Task object"
+    				"return" => "List of tasks"
     			],
     			"/gulpfile/:guid/tasks/:type/:name" => [
     				"method" => "DELETE",
