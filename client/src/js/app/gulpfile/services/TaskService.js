@@ -15,8 +15,8 @@ app.service('TaskService', function($http, BaseUrl, $q, $log) {
       } else { 
         var deferred = $q.defer();
         deferred.reject(response.data, status, headers, config);
+        return deferred.promise;
       }
-      return deferred.promise;
     });
   },
   getGulpfile = function(guid){
@@ -30,8 +30,8 @@ app.service('TaskService', function($http, BaseUrl, $q, $log) {
       } else { 
         var deferred = $q.defer();
         deferred.reject(response.data, status, headers, config);
+        return deferred.promise;
       }
-      return deferred.promise;
     });
   },
   getPredefinedTasks = function() {

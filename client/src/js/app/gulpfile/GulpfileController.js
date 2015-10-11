@@ -55,8 +55,6 @@ app.controller('GulpfileController', function GulpfileController($scope,  $route
       $scope.toggle(task, true); // Force toggle to open the task
       $scope.scope.editmode = true;
       $scope.showAdd = false;
-    }, function(data, status, headers, config) {
-      $scope.error = 'Looks like there was a network error. Please check your internet connection and try again later.';
     })
     .catch(function() {
       $scope.error = 'An error occured.';

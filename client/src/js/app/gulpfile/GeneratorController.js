@@ -1,7 +1,7 @@
 /**
  * Download controller
  */
-app.controller('GulpfileGeneratorController', function GulpfileGeneratorController($scope, $routeParams, TaskService, BaseUrl) {
+app.controller('GeneratorController', function GeneratorController($scope, $routeParams, TaskService, BaseUrl) {
 
   /**
    * Fetch the gulpfile 

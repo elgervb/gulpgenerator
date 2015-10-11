@@ -26,8 +26,8 @@ var app = angular.module('gulpgenerator', ['ngRoute'])
     })
     // Route to add tasks to an existing gulpfile
     .when('/gulpfile/:guid/generate', {
-      controller: 'GulpfileGeneratorController',
-      templateUrl: '/js/app/gulpfile/generate.html'
+      controller: 'GeneratorController',
+      templateUrl: '/js/app/gulpfile/GeneratorController.html'
     });
 
   $locationProvider.html5Mode('true');
