@@ -2,7 +2,7 @@
 /**
  * Main controller
  */
-app.controller('GulpfileController', function($scope,  $routeParams, TaskService, SharedData) {
+app.controller('GulpfileController', function GulpfileController($scope,  $routeParams, TaskService) {
 
   TaskService.getGulpfile($routeParams.guid).then(function(gulpfile){
     $scope.gulpfile = gulpfile;

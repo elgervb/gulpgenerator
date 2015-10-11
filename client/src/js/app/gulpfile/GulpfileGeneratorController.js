@@ -1,12 +1,19 @@
 /**
- * Main controller
+ * Download controller
  */
-app.controller('GulpfileGeneratorController', function($scope, $routeParams, $http, TaskService, SharedData, BaseUrl) {
+app.controller('GulpfileGeneratorController', function GulpfileGeneratorController($scope, $routeParams, TaskService, BaseUrl) {
 
-  $scope.package = SharedData.load($routeParams.guid);
+  /**
+   * Fetch the gulpfile 
+   */
+  TaskService.getGulpfile($routeParams.guid).then(function(gulpfile){
+    $scope.gulpfile = gulpfile;
+  });
 
+  /**
+   * Download the gulpfile
+   */
   $scope.download = function() {
-    
     var iframe = document.createElement('iframe');
     iframe.classList.add('download-frame');
     iframe.src = BaseUrl + 'gulpfile/' + $routeParams.guid + "/download";

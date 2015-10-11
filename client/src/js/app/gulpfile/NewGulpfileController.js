@@ -2,7 +2,7 @@
  * Controller to help the user create a new gulp file. This page let's the user enter the 
  * package.json details.
  */
-app.controller('NewGulpfileController', function($scope, $location, TaskService) {
+app.controller('NewGulpfileController', function NewGulpfileController($scope, $location, TaskService) {
 
   /**
    * Continue to the next page: generator where the user can add, edit or delete tasks

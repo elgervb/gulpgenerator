@@ -7,8 +7,6 @@ app.service('TaskService', function($http, BaseUrl, $q, $log) {
     });
   },
   createGulpfile = function(gulpfile){
-    $log.debug('adding new gulpfile');
-    
     return $http.post(BaseUrl + 'gulpfile', gulpfile)
     .then(function(response, status, headers, config) {
       if (response.status === 201) { // Created
@@ -27,7 +25,7 @@ app.service('TaskService', function($http, BaseUrl, $q, $log) {
       url: BaseUrl + 'gulpfile/' + guid
     }).then(function(response, status, headers, config){
       if (response.status === 200) { // Created
-        $log.debug('added new gulpfile ', response.data);
+        $log.debug('Get gulpfile ', response.data);
         return response.data;
       } else { 
         var deferred = $q.defer();
