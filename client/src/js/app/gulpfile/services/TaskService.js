@@ -11,12 +11,11 @@ app.service('TaskService', function($http, BaseUrl, $q, $log) {
     
     return $http.post(BaseUrl + 'gulpfile', gulpfile)
     .then(function(response, status, headers, config) {
-      var deferred = $q.defer();
-      
       if (response.status === 201) { // Created
         $log.debug('added new gulpfile ', response.data);
-        deferred.resolve(response.data);
+        return response.data;
       } else { 
+        var deferred = $q.defer();
         deferred.reject(response.data, status, headers, config);
       }
       return deferred.promise;
@@ -27,12 +26,11 @@ app.service('TaskService', function($http, BaseUrl, $q, $log) {
       method: 'get',
       url: BaseUrl + 'gulpfile/' + guid
     }).then(function(response, status, headers, config){
-      var deferred = $q.defer();
-      
       if (response.status === 200) { // Created
         $log.debug('added new gulpfile ', response.data);
-        deferred.resolve(response.data);
+        return response.data;
       } else { 
+        var deferred = $q.defer();
         deferred.reject(response.data, status, headers, config);
       }
       return deferred.promise;
