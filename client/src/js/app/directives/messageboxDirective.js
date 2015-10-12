@@ -43,11 +43,6 @@ angular.module('gulpgenerator').directive('messagebox', function messageboxDirec
     },
     /* jshint multistr: true */
     /* The actual template */
-    template: '<div class="msgbox page" ng-show="msg">\
-      <button class="close" type="button" ng-click="msg=\'\';">&times;</button>\
-      <h4 class="title">{{title}}</h4>\
-      <p ng-bind-html="msg"></p>\
-    </div>\
-    <div class="overlay" ng-show="msg"></div>'
+    templateUrl: '/js/app/directives/messageboxDirective.html' 
   };
 });
