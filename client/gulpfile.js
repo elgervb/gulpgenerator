@@ -400,9 +400,9 @@ gulp.task('styles', ['styles-vendor'], function styles() {
   .pipe(size({showFiles: true}))
   .pipe(gulp.dest(settings.dist + 'css'))
   
-   // break the flow as gulp-if results in an error
-  //.pipe(gulpif(typeof reload === 'function', function() { return reload({stream: true})})) // when started with browser sync, then inject css
-  if (typeof reload === 'function'){
+  // break the flow as gulp-if results in an error
+  // .pipe(gulpif(typeof reload === 'function', function() { return reload({stream: true})})) // when started with browser sync, then inject css
+  if (typeof reload === 'function') {
     result.pipe(reload({stream: true}));// when started with browser sync, then inject css
   }
   
