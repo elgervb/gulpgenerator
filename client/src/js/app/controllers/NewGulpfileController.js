@@ -4,11 +4,19 @@
  */
 angular.module('gulpgenerator').controller('NewGulpfileController', function NewGulpfileController($scope, $location, TaskService) {
 
+  // defaults
+  $scope.gulpfile = {
+    version: {
+      major: 0,
+      minor: 0,
+      patch: 1
+    }
+  };
+
   /**
    * Continue to the next page: generator where the user can add, edit or delete tasks
    */
   $scope.createGulpfile = function() {
-
     TaskService.createGulpfile($scope.gulpfile)
     .then(function(gulpfile) {
       $location.path('/gulpfile/' + gulpfile.guid);
