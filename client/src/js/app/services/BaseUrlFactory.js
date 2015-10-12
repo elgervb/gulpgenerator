@@ -1,7 +1,7 @@
 /**
  * Angular factory to create the base url of the application, based on local or server configuration
  */
-app.factory('BaseUrl', function($location) {
+angular.module('gulpgenerator').factory('BaseUrl', function($location) {
   var host = $location.host();
   // Check for local
   if (host === 'localhost' || host.substr(0, 6) === '127.0.' || host.substr(0, 7) === '192.168') {
