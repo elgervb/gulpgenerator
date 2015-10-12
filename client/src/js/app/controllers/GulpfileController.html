@@ -11,9 +11,9 @@
 
   <div class="task-list">
 
-    <div ng-hide="gulpfile.tasks">No active tasks present. <a ng-click="showAdd=!showAdd; addMode();">Add a new task now.</a></div>
+    <div ng-hide="gulpfile.tasks">No active tasks present. Add a new task.</div>
 
-  <!-- iterate through the all tasks -->
+    <!-- iterate through the all tasks -->
     <div class="task" ng-repeat="(key, task) in gulpfile.tasks" ng-class="{toggled: toggled==task}">
 
       <div class="task-header">
@@ -61,13 +61,13 @@
     <a class="gulp-button generate-btn" href="/#/gulpfile/{{gulpfile.guid}}/generate" title="generate gulpfile">&rArr;</a>
   </div>
 
-  <div class="add-task">
+  <div class="add-task" ng-controller="PredefinedTasksController">
     <div class="overlay" ng-show="showAdd">
       
       <a class="gulp-button close-btn" ng-click="showAdd=false">&times;</a>
 
       <!-- iterate through the all tasks -->
-    <ul class="predefined">
+    <ul class="predefined" >
       <li ng-repeat="(key, task) in predefinedTasks" ng-click="select(task);" class="task"> 
           <h2>{{task.type}}</h2> 
           <p>{{task.description}}</p> 

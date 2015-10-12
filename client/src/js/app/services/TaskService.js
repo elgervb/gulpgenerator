@@ -1,8 +1,8 @@
 /* global angular */
 angular.module('gulpgenerator').service('TaskService', function($http, BaseUrl, $q, $log) {
 
-  var addTask = function(gulpfile, task) {
-    return $http.put(BaseUrl + 'gulpfile/' + gulpfile.guid + '/tasks', task)
+  var addTask = function(guid, task) {
+    return $http.put(BaseUrl + 'gulpfile/' + guid + '/tasks', task)
     .then(function(response) {
       return response.data;
     });

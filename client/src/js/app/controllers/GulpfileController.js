@@ -2,7 +2,7 @@
 /**
  * Main controller
  */
-angular.module('gulpgenerator').controller('GulpfileController', function GulpfileController($scope,  $routeParams, TaskService) {
+angular.module('gulpgenerator').controller('GulpfileController', function GulpfileController($scope,  $routeParams, $rootScope, TaskService) {
 
   TaskService.getGulpfile($routeParams.guid).then(function(gulpfile) {
     $scope.gulpfile = gulpfile;
@@ -24,12 +24,7 @@ angular.module('gulpgenerator').controller('GulpfileController', function Gulpfi
   };
 
   $scope.addMode = function() {
-
-    if (!$scope.predefinedTasks) {
-      TaskService.getPredefinedTasks().then(function(response) {
-        $scope.predefinedTasks = response.data.tasks;
-      });
-    }
+    $rootScope.$broadcast('ADD-MODE');
   };
   
   /**
@@ -40,16 +35,10 @@ angular.module('gulpgenerator').controller('GulpfileController', function Gulpfi
       return value.type !== task.type && value.name !== task.name;
     });
   };
-
-  /**
-   * Select a predifined task and copy it to the gulpfile
-   */
-  $scope.select = function(task) {
-
-    task = angular.copy(task);
-
+  
+  $scope.$on('ADD-TASK', function(event, task) {
     // Add task
-    TaskService.addTask($scope.gulpfile, task)
+    TaskService.addTask($routeParams.guid, task)
     .then(function(tasks) { // New task will be returned in response.dat
       $scope.gulpfile.tasks = tasks;
       $scope.toggle(task, true); // Force toggle to open the task
@@ -59,8 +48,6 @@ angular.module('gulpgenerator').controller('GulpfileController', function Gulpfi
     .catch(function() {
       $scope.error = 'An error occured.';
     });
-
-   
-  };
-
+  });
+  
 });
