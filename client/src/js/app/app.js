@@ -6,13 +6,13 @@ var app = angular.module('gulpgenerator', ['ngRoute'])
 /**
  * Configuration: state your routes and other configuration items here
  */
-.config(function($routeProvider, $locationProvider, $location) {
+.config(function($routeProvider, $locationProvider) {
   
   // Root; show the main page to the user
   $routeProvider
     .when('/', {
       controller: 'IndexController',
-      templateUrl: '/js/app/controllers/index.html'
+      templateUrl: '/js/app/controllers/IndexController.html'
     })
     // Route for creating a new Gulpfile
     .when('/gulpfile/create', {
@@ -29,8 +29,9 @@ var app = angular.module('gulpgenerator', ['ngRoute'])
       controller: 'GeneratorController',
       templateUrl: '/js/app/controllers/GeneratorController.html'
     })
-    .otherwise(function() {
-      $location.path('/');
+    .otherwise({
+      controller: 'IndexController',
+      templateUrl: '/js/app/controllers/IndexController.html'
     });
 
   $locationProvider.html5Mode('true');
