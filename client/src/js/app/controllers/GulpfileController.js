@@ -4,7 +4,7 @@
  */
 angular.module('gulpgenerator').controller('GulpfileController', function GulpfileController($scope,  $routeParams, TaskService) {
 
-  TaskService.getGulpfile($routeParams.guid).then(function(gulpfile){
+  TaskService.getGulpfile($routeParams.guid).then(function(gulpfile) {
     $scope.gulpfile = gulpfile;
   });
 
@@ -35,7 +35,7 @@ angular.module('gulpgenerator').controller('GulpfileController', function Gulpfi
   /**
    * Delete a task from the list
    */
-  $scope.delete = function(task){
+  $scope.delete = function(task) {
     $scope.gulpfile.tasks = $scope.gulpfile.tasks.filter(function(value, index) {
       return value.type !== task.type && value.name !== task.name;
     });
@@ -51,7 +51,7 @@ angular.module('gulpgenerator').controller('GulpfileController', function Gulpfi
     // Add task
     TaskService.addTask($scope.gulpfile, task)
     .then(function(tasks) { // New task will be returned in response.dat
-    $scope.gulpfile.tasks = tasks;
+      $scope.gulpfile.tasks = tasks;
       $scope.toggle(task, true); // Force toggle to open the task
       $scope.scope.editmode = true;
       $scope.showAdd = false;

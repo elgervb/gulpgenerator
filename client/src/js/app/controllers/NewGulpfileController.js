@@ -11,7 +11,7 @@ angular.module('gulpgenerator').controller('NewGulpfileController', function New
 
     TaskService.createGulpfile($scope.gulpfile)
     .then(function(gulpfile) {
-       $location.path('/gulpfile/' + gulpfile.guid);
+      $location.path('/gulpfile/' + gulpfile.guid);
     })
     .catch(function(data, status, headers, config) {
       $scope.error = 'Failed to add gulpfile details (Network status: ' + status + ')';
