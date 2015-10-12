@@ -12,7 +12,7 @@
  * <messagebox title="'error'" msg="error"></messagebox>
  * ```
  */
-app.directive('messagebox', function messageboxDirective($document) {
+angular.module('gulpgenerator').directive('messagebox', function messageboxDirective($document) {
   var ESCAPE_KEY = 27;
   
   return {
