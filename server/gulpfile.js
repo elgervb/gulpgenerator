@@ -6,14 +6,8 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync');
 
 var reload  = browserSync.reload;
- 
-gulp.task('test', function() {
-    var options = {debug: false, notify: true, stderr: true};
-    gulp.src('phpunit.xml')
-        .pipe(phpunit('', options))
-        .on('error', notify.onError(notification('fail', 'phpunit')))
-        .pipe(notify(notification('pass', 'phpunit')));
-});
+
+gulp.task('default', ['start', 'watch']);
 
 gulp.task('php', function() {
 	return require('gulp-connect-php').server({
@@ -22,7 +16,7 @@ gulp.task('php', function() {
 		keepalive: true
 	});
 });
-gulp.task('browser-sync',['php'], function() {
+gulp.task('start',['php', 'watch'], function() {
     browserSync({
         proxy: '127.0.0.1:4011',
         port: 4010,
@@ -30,10 +24,13 @@ gulp.task('browser-sync',['php'], function() {
         notify: true
     });
 });
-gulp.task('default', ['browser-sync'], function () {
-    gulp.watch(['/**/*.php'], [reload]);
+gulp.task('test', function() {
+    var options = {debug: false, notify: true, stderr: true};
+    gulp.src('phpunit.xml')
+        .pipe(phpunit('', options))
+        .on('error', notify.onError(notification('fail', 'phpunit')))
+        .pipe(notify(notification('pass', 'phpunit')));
 });
-
 gulp.task('test:watch', function(){
 	var path = require('path');
     gulp.watch('./**/*.php')
@@ -48,7 +45,9 @@ gulp.task('test:watch', function(){
                 .pipe(notify(notification('pass', 'phpunit')));
         });
 });
-
+gulp.task('watch', function(){
+	gulp.watch(['./**/*.php'], [reload]);
+});
 function notification(status, pluginName, override) {
     var options = {
         title:   ( status == 'pass' ) ? 'Tests Passed' : 'Tests Failed',
