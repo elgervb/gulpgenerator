@@ -1,5 +1,5 @@
 /**
- * Angular factory to create the base url of the application
+ * Angular factory to create the base url of the application, based on local or server configuration
  */
 app.factory('BaseUrl', function($location) {
   var host = $location.host();

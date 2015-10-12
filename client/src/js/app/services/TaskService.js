@@ -1,12 +1,13 @@
-app.service('TaskService', function($http, BaseUrl, $q, $log) {
+/* global angular */
+angular.module('gulpgenerator').service('TaskService', function($http, BaseUrl, $q, $log) {
 
   var addTask = function(gulpfile, task) {
-    return $http.put(BaseUrl + 'gulpfile/' + gulpfile.guid + "/tasks", task)
-    .then(function(response){
+    return $http.put(BaseUrl + 'gulpfile/' + gulpfile.guid + '/tasks', task)
+    .then(function(response) {
       return response.data;
     });
   },
-  createGulpfile = function(gulpfile){
+  createGulpfile = function(gulpfile) {
     return $http.post(BaseUrl + 'gulpfile', gulpfile)
     .then(function(response, status, headers, config) {
       if (response.status === 201) { // Created
@@ -19,11 +20,11 @@ app.service('TaskService', function($http, BaseUrl, $q, $log) {
       }
     });
   },
-  getGulpfile = function(guid){
+  getGulpfile = function(guid) {
     return $http({
       method: 'get',
       url: BaseUrl + 'gulpfile/' + guid
-    }).then(function(response, status, headers, config){
+    }).then(function(response, status, headers, config) {
       if (response.status === 200) { // Created
         $log.debug('Get gulpfile ', response.data);
         return response.data;
