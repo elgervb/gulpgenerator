@@ -9,17 +9,18 @@ angular.module('gulpgenerator').controller('GulpfileController', function Gulpfi
   });
 
   $scope.scope = {};
-
+  
   /**
    * Toggle a task and show the task body
    */
   $scope.toggle = function(task, force) {
-    if (!force && $scope.toggled === task.name) {
+    if ($scope.editmode){return;}
+    if (!force && $scope.toggled === task) {
       delete $scope.toggled;
       delete $scope.editmode;
     } else {
       $log.debug('Toggle task', task);
-      $scope.toggled = task.name;
+      $scope.toggled = task;
     }
   };
 
@@ -28,6 +29,18 @@ angular.module('gulpgenerator').controller('GulpfileController', function Gulpfi
    */
   $scope.addMode = function() {
     $rootScope.$broadcast('ADD-MODE');
+  };
+  
+  $scope.validate = function(form, task) {
+    var duplicates = $scope.gulpfile.tasks.filter(function(value, index) {
+      return value.name === task.name;
+    });
+    
+    if (duplicates.length > 1 ) {
+      $scope.error = 'There is already a task with name ' + task.name;
+    } else {
+      $scope.editmode = !$scope.editmode;
+    }
   };
   
   /**

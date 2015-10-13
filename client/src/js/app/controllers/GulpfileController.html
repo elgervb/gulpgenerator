@@ -14,18 +14,19 @@
     <div ng-hide="gulpfile.tasks">No active tasks present. Add a new task.</div>
 
     <!-- iterate through the all tasks -->
-    <div class="task" ng-repeat="(key, task) in gulpfile.tasks" ng-class="{toggled: toggled==task.name}">
+    <form class="task" ng-repeat="(key, task) in gulpfile.tasks" ng-class="{toggled: $parent.toggled==task}" ng-submit="validate(taskform, task)">
 
       <div class="task-header">
         <h2 ng-click="toggle(task)">
-          <a>{{task.name}}</a>
+          <a ng-show="!$parent.editmode">{{task.name}}</a>
+          <input ng-show="$parent.editmode" type="input" placeholder="task name" ng-model="task.name" required />
         </h2>
 
         <h3>{{task.description}}</h3>
       </div>
 
       <div class="task-body">
-        <div class="task-body-inner">
+        <div class="task-body-inner" name="taskform">
           <p>Type: {{task.type}}</p>
           <!-- iterate through the configured fields -->
           <div class="field clearfix" ng-repeat="(key, field) in task.fields">
@@ -33,8 +34,8 @@
             <label>{{field.name}}</label>
 
             <!-- Show edit or read only field -->
-            <span ng-show="!editmode" ng-bind="gulpfile.settings[field.name]"></span>
-            <input ng-show="editmode" type="{{field.type}}" placeholder="{{field.name}}" ng-model="gulpfile.settings[field.name]" required />
+            <span ng-show="!$parent.editmode" ng-bind="field.value"></span>
+            <input ng-show="$parent.editmode" type="{{field.type}}" placeholder="{{field.name}}" ng-model="field.value" required />
           </div>
         
           <!-- Show a list of dependencies -->
@@ -46,14 +47,14 @@
           <h3 class="no-task-specs" ng-hide="task.dependencies.length+task.fields.length">No specs for this task</h3>
 
           <!-- Edit mode for this task -->
-          <a class="edit-toggle edit-btn" ng-show="!editmode&&task.fields" ng-click="editmode=!editmode">+</a>
-          <a class="gulp-button edit-toggle close-btn" ng-show="editmode" ng-click="editmode=!editmode">&times;</a>
+          <a class="edit-toggle edit-btn" ng-show="!$parent.editmode&&task.fields" ng-click="$parent.editmode=!$parent.editmode">+</a>
+          <button class="gulp-button edit-toggle close-btn" ng-show="$parent.editmode">&times;</button>
 
           <a class="btn small" ng-click="delete(task)">delete</a>
         </div>
       </div>
 
-    </div>  
+    </form>  
 
   </div>
 
