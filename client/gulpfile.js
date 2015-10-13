@@ -38,7 +38,7 @@ gulp.task('browser-sync', ['watch'], function() {
   reload = browserSync.reload;
 
   // Watch any files in dist/*, reload on change
-  gulp.watch([settings.dist + '**', '!' + settings.dist + '**/*.css']).on('change', reload);
+  gulp.watch([settings.dist + '**/*', '!' + settings.dist + '**/*.css']).on('change', reload);
   
   // proxy settings for /redirect
   var proxyOptions = url.parse('http://localhost:8080/redirect');
@@ -512,11 +512,4 @@ gulp.task('watch', function() {
   
   // Update docs
   gulp.watch('README.md', ['docs-js']);
-});
-
-gulp.task('codecov.io', function() {
-  var codecov = require('gulp-codecov.io');
-  console.log(settings.reports + '**/coverage/report-lcov/lcov.info');
-  return gulp.src(settings.reports + '/*/coverage/report-lcov/lcov.info')
-    .pipe(codecov());
 });

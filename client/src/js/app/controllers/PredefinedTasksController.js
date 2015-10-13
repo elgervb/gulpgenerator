@@ -16,6 +16,7 @@ angular.module('gulpgenerator').controller('PredefinedTasksController', function
    * Select a predefined task and notify the gulpfile
    */
   $scope.select = function(task) {
+    $scope.showAdd = false;
     $rootScope.$broadcast('ADD-TASK', angular.copy(task));
   };
   

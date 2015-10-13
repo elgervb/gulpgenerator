@@ -2,27 +2,30 @@
 /**
  * Main controller
  */
-angular.module('gulpgenerator').controller('GulpfileController', function GulpfileController($scope,  $routeParams, $rootScope, TaskService) {
+angular.module('gulpgenerator').controller('GulpfileController', function GulpfileController($scope,  $routeParams, $rootScope, $log, TaskService) {
 
   TaskService.getGulpfile($routeParams.guid).then(function(gulpfile) {
     $scope.gulpfile = gulpfile;
   });
 
   $scope.scope = {};
-  $scope.scope.editmode = false;
 
   /**
    * Toggle a task and show the task body
    */
   $scope.toggle = function(task, force) {
-    if (!force && $scope.toggled === task) {
+    if (!force && $scope.toggled === task.name) {
       delete $scope.toggled;
-      delete $scope.scope.editmode;
+      delete $scope.editmode;
     } else {
-      $scope.toggled = task;
+      $log.debug('Toggle task', task);
+      $scope.toggled = task.name;
     }
   };
 
+  /**
+   * Switch the app into add mode
+   */
   $scope.addMode = function() {
     $rootScope.$broadcast('ADD-MODE');
   };
@@ -39,11 +42,10 @@ angular.module('gulpgenerator').controller('GulpfileController', function Gulpfi
   $scope.$on('ADD-TASK', function(event, task) {
     // Add task
     TaskService.addTask($routeParams.guid, task)
-    .then(function(tasks) { // New task will be returned in response.dat
+    .then(function(tasks){
       $scope.gulpfile.tasks = tasks;
       $scope.toggle(task, true); // Force toggle to open the task
-      $scope.scope.editmode = true;
-      $scope.showAdd = false;
+      $scope.editmode = true;
     })
     .catch(function() {
       $scope.error = 'An error occured.';
