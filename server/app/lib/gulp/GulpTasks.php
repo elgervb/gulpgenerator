@@ -3,6 +3,7 @@ namespace gulp;
 
 use compact\mvvm\impl\ViewModel;
 use compact\Context;
+use compact\mvvm\impl\Model;
 
 class GulpTasks
 {
@@ -90,7 +91,16 @@ class GulpTasks
         $vars = get_object_vars($model);
    
         foreach ($vars as $key => $value){
-            $view->$key = $value;
+        	if ($key !== 'fields'){
+            	$view->$key = $value;
+        	}
+        }
+        if (isset($vars['fields']) && is_array($vars['fields'])){
+        	$fields = new Model();
+        	foreach ($vars['fields'] as $field){
+        		$fields->set($field->{'name'}, $field->{'value'});
+        	}
+        	$view->{'fields'} = $fields;
         }
     }
 }

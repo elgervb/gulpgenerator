@@ -1,11 +1,11 @@
 function(){
   var gulpDoxx = require('gulp-doxx');
 
-  gulp.src( [ '{src}' ] )
+  gulp.src( [ '{fields.src}' ] )
     .pipe(gulpDoxx({
-    	{#title}title: {title}{/title}{#urlPrefix},
-        urlPrefix: "file:///"+__dirname+{urlPrefix}{/urlPrefix}
+    	{#fields.title}title: {fields.title}{/fields.title}{#fields.urlPrefix},
+        urlPrefix: "file:///"+__dirname+{fields.urlPrefix}{/fields.urlPrefix}
     }))
-    .pipe( gulp.dest( '{dest}' ) );
+    .pipe( gulp.dest( '{fields.dest}' ) );
 
 }
