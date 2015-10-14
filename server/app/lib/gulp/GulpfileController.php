@@ -217,7 +217,7 @@ class GulpfileController
             
             $gulpfile->set('tasks', array_values($tasks)); // re-index array
             $db->save($gulpfile);
-    
+     
             return new HttpStatus(HttpStatus::STATUS_200_OK, new Json($tasks));
         }
     

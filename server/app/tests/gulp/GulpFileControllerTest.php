@@ -5,6 +5,7 @@ namespace tests\gulp;
 use gulp\GulpfileController;
 use compact\handler\impl\http\HttpStatus;
 use compact\utils\Random;
+use compact\handler\impl\json\Json;
 /**
  *
  * @author elger
@@ -29,8 +30,9 @@ class GulpFileControllerTest extends \PHPUnit_Framework_TestCase {
 		
 		$this->assertTrue($response instanceof HttpStatus);
 		$this->assertEquals(204, $response->getHttpCode(), "Check the http status code");
+		$this->assertTrue($response->getContent() instanceof Json, "Check that the result is JSON");
 		
-		$this->assertArrayHasKey("message", $response->getContent(), "Check that there is an error message");
+		$this->assertArrayHasKey("message", $response->getContent()->getObject(), "Check that there is an error message");
 	}
 	
 	public function testPost422ValidationError(){
@@ -39,14 +41,15 @@ class GulpFileControllerTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertTrue($response instanceof HttpStatus);
 		$this->assertEquals(422, $response->getHttpCode(), "Check the http status code");
+		$this->assertTrue($response->getContent() instanceof Json, "Check that the result is JSON");
 		
-		$this->assertArrayHasKey("message", $response->getContent(), "Check that there is an error message");
+		$this->assertArrayHasKey("message", $response->getContent()->getObject(), "Check that there is an error message");
 	}
 	
 	public function testPost201Created(){
 		$_POST['guid'] = Random::guid();
 		$_POST['version'] = 'v1.0.0';
-		$_POST['tasks'] = [['name' =>'copy', 'description'=>'test gulpfile', 'src'=>'./src', 'dist'=>'./dest']];
+		$_POST['tasks'] = [['name' =>Random::alphaNum(10), 'description'=>'test gulpfile', 'src'=>'./src', 'dist'=>'./dest']];
 		$response = GulpfileController::instance()->post();
 	
 		$this->assertTrue($response instanceof HttpStatus);
