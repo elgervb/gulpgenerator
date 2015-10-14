@@ -66,7 +66,7 @@ angular.module('gulpgenerator').controller('GulpfileController', function Gulpfi
     if (duplicates.length > 1) {
       $scope.error = 'There is already a task with name ' + task.name;
     } else {
-      $scope.edit(task);
+      $scope.edit();
     }
   };
   

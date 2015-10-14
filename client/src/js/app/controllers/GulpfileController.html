@@ -43,8 +43,8 @@
 
           <!-- Edit mode for this task -->
           <a class="edit-toggle edit-btn" ng-show="!$parent.isEdit(task)&&task.fields" ng-click="$parent.edit(task)">+</a>
-          <button class="gulp-button edit-toggle close-btn" ng-show="$parent.isEdit(task)">&times;</button>
-          {{$parent.edit}}
+          <button class="gulp-button edit-toggle close-btn" ng-show="$parent.isEdit(task)"></button>
+          
           <a class="btn small" ng-click="delete(task)">delete</a>
         </div>
       </div>
