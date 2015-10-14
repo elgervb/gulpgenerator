@@ -2,12 +2,7 @@
     <h2>tasks for {{gulpfile.name}}  <span class="version-number">({{gulpfile.version | semverFilter}})</span> </h2>
   </nav>
 
-  <div class="msgbox page" ng-show="error">
-    <button class="close" type="button" ng-click="error='';">&times;</button>
-    <h4 class="title">Error.</h4>
-    <p>{{error}}</p>
-  </div>
-
+  <messagebox title="'error'" msg="error"></messagebox>
 
   <div class="task-list">
 
