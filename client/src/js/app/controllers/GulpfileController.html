@@ -13,8 +13,8 @@
 
       <div class="task-header">
         <h2 ng-click="toggle(task)">
-          <a ng-show="!$parent.editmode">{{task.name}}</a>
-          <input ng-show="$parent.editmode" type="input" placeholder="task name" ng-model="task.name" required />
+          <a ng-show="!$parent.isEdit(task)">{{task.name}}</a>
+          <input ng-show="$parent.isEdit(task)" type="input" placeholder="task name" ng-model="task.name" required />
         </h2>
 
         <h3>{{task.description}}</h3>
@@ -29,8 +29,8 @@
             <label>{{field.name}}</label>
 
             <!-- Show edit or read only field -->
-            <span ng-show="!$parent.editmode" ng-bind="field.value"></span>
-            <input ng-show="$parent.editmode" type="{{field.type}}" placeholder="{{field.name}}" ng-model="field.value" required />
+            <span ng-show="!$parent.isEdit(task)" ng-bind="field.value"></span>
+            <input ng-show="$parent.isEdit(task)" type="{{field.type}}" placeholder="{{field.name}}" ng-model="field.value" required />
           </div>
         
           <!-- Show a list of dependencies -->
@@ -42,9 +42,9 @@
           <h3 class="no-task-specs" ng-hide="task.dependencies.length+task.fields.length">No specs for this task</h3>
 
           <!-- Edit mode for this task -->
-          <a class="edit-toggle edit-btn" ng-show="!$parent.editmode&&task.fields" ng-click="$parent.editmode=!$parent.editmode">+</a>
-          <button class="gulp-button edit-toggle close-btn" ng-show="$parent.editmode">&times;</button>
-
+          <a class="edit-toggle edit-btn" ng-show="!$parent.isEdit(task)&&task.fields" ng-click="$parent.edit(task)">+</a>
+          <button class="gulp-button edit-toggle close-btn" ng-show="$parent.isEdit(task)">&times;</button>
+          {{$parent.edit}}
           <a class="btn small" ng-click="delete(task)">delete</a>
         </div>
       </div>

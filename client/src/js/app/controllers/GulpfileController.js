@@ -1,6 +1,6 @@
 /* global angular */
 /**
- * Main controller
+ * Gulpfile controller
  */
 angular.module('gulpgenerator').controller('GulpfileController', function GulpfileController($scope,  $routeParams, $log, TaskService) {
 
@@ -14,15 +14,30 @@ angular.module('gulpgenerator').controller('GulpfileController', function Gulpfi
    * Toggle a task and show the task body
    */
   $scope.toggle = function(task, forceOpen) {
-    if ($scope.editmode){return;}
+    // do not toggle when task is in edit mode
+    if ($scope.isEdit(task)){
+      return;
+    } else {
+      $scope.edit();
+    }
+    
     if (!forceOpen && $scope.toggled === task) {
       delete $scope.toggled;
-      delete $scope.editmode;
+      delete $scope.editTask;
     } else {
       $log.debug('Toggle task', task);
       $scope.toggled = task;
     }
   };
+  
+  $scope.edit = function(task) {
+    $log.debug('edit task', task);
+    $scope.editTask = task;
+  }
+  
+  $scope.isEdit = function(task) {
+    return $scope.editTask === task;
+  }
 
   /**
    * Switch the app into add mode
@@ -51,7 +66,7 @@ angular.module('gulpgenerator').controller('GulpfileController', function Gulpfi
     if (duplicates.length > 1 ) {
       $scope.error = 'There is already a task with name ' + task.name;
     } else {
-      $scope.editmode = !$scope.editmode;
+      $scope.edit(task);
     }
   };
   
@@ -64,7 +79,7 @@ angular.module('gulpgenerator').controller('GulpfileController', function Gulpfi
     .then(function(tasks){
       $scope.gulpfile.tasks = tasks;
       $scope.toggle(task, true); // Force toggle to open the task
-      $scope.editmode = true;
+      $scope.edit(task);
     })
     .catch(function() {
       $scope.error = 'An error occured.';
