@@ -24,6 +24,7 @@ angular.module('gulpgenerator').controller('PredefinedTasksController', function
    * Switch to add mode
    */
   $scope.$on('ADD-MODE', function() {
+    $scope.showAdd = true;
     $scope.addMode();
   });
 
