@@ -183,6 +183,49 @@ class GulpfileController
     }
 
     /**
+     * Add a task to the gulpfile
+     *
+     * @param string $guid
+     *
+     * @return \compact\handler\impl\http\HttpStatus with the added task
+     */
+    public function deletetask($guid, $name)
+    {
+        $db = $this->createDb($guid);
+    
+        $sc = $db->createSearchCriteria();
+        if ($guid) {
+            $sc->where("guid", $guid);
+        }
+    
+        $result = $db->search($sc);
+        if ($result->count() > 0) {
+    
+            $gulpfile = $result->offsetGet(0); // get first model
+    
+            $tasks = $gulpfile->get('tasks');
+            if (! is_array($tasks)) {
+               return new HttpStatus(HttpStatus::STATUS_204_NO_CONTENT);
+            }
+    
+            for ($i=0; $i<count($tasks); $i++){
+                $task = $tasks[$i];
+                if ($name !== $task['name']){
+                    unset($tasks[$i]);
+                    break;
+                }
+            }
+            
+    
+            $db->save($gulpfile);
+    
+            return new HttpStatus(HttpStatus::STATUS_200_OK, new Json($tasks));
+        }
+    
+        return new HttpStatus(HttpStatus::STATUS_204_NO_CONTENT);
+    }
+    
+    /**
      * Returns all predefined tasks
      *
      * @return \compact\handler\impl\json\Json

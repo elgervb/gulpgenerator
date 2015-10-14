@@ -20,6 +20,12 @@ angular.module('gulpgenerator').service('TaskService', function($http, BaseUrl, 
       }
     });
   },
+  deleteTask = function(guid, task) {
+    return $http.delete(BaseUrl + 'gulpfile/' + guid + '/tasks/' + task.name, task)
+    .then(function(response) {
+      return response.data;
+    });
+  },
   getGulpfile = function(guid) {
     return $http({
       method: 'get',
@@ -45,6 +51,7 @@ angular.module('gulpgenerator').service('TaskService', function($http, BaseUrl, 
   return {
     addTask: addTask,
     createGulpfile: createGulpfile,
+    deleteTask: deleteTask,
     getGulpfile: getGulpfile,
     getPredefinedTasks: getPredefinedTasks
   }

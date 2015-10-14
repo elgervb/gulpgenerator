@@ -21,9 +21,14 @@ angular.module('gulpgenerator').controller('GulpfileController', function Gulpfi
    * Delete a task from the list
    */
   $scope.delete = function(task) {
-    $scope.gulpfile.tasks = $scope.gulpfile.tasks.filter(function(value, index) {
-      return value.name !== task.name;
-    });
+    
+    TaskService.deleteTask($routeParams.guid, task)
+      .then(function(tasks) {
+        $scope.gulpfile.tasks = tasks;
+      })
+      .catch(function() {
+        $scope.error = 'An error occured when trying to delete task ' + task.name;
+      });
   };
   
   /**

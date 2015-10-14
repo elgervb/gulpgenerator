@@ -61,7 +61,7 @@ class AppContext implements IAppContext
     				"desc" => "Add a gulp task to an existing gulpfile",
     				"return" => "List of tasks"
     			],
-    			"/gulpfile/:guid/tasks/:type/:name" => [
+    			"/gulpfile/:guid/tasks/:name" => [
     				"method" => "DELETE",
     				"desc" => "Delete a gulp task",
     				"return" => "The new task list"
@@ -89,8 +89,8 @@ class AppContext implements IAppContext
         	return \gulp\GulpfileController::instance()->addtask($guid);
         }, 'PUT');
         
-        $router->add("^/gulpfile/(".self::GUID_REGEX.")/tasks/(.*)/(.*)$", function($guid, $type, $name){
-        	return \gulp\GulpfileController::instance()->addtask($guid);
+        $router->add("^/gulpfile/(".self::GUID_REGEX.")/tasks/(.*)$", function($guid, $name){
+        	return \gulp\GulpfileController::instance()->deletetask($guid, $name);
         }, 'DELETE');
         
         if (Context::get()->isLocal()){

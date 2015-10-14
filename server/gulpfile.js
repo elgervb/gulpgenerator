@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 
 var reload  = browserSync.reload;
 
-gulp.task('default', ['start', 'watch']);
+gulp.task('default', ['start']);
 
 gulp.task('php', function() {
 	return require('gulp-connect-php').server({
