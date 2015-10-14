@@ -79,12 +79,15 @@ angular.module('gulpgenerator').controller('GulpfileController', function Gulpfi
    * Validate the form to make sure that there is only one task with each name
    */
   $scope.validate = function(form, task) {
-    var duplicates = $scope.gulpfile.tasks.filter(function(value, index) {
+    // check for duplicate tasks by name
+    if (angular.isArray($scope.gulpfile.tasks) && $scope.gulpfile.tasks.lenght > 1){
+      var duplicates = $scope.gulpfile.tasks.filter(function(value, index) {
       return value.name === task.name;
-    });
-    
-    if (duplicates.length > 1) {
-      $scope.error = 'There is already a task with name ' + task.name;
+      });
+      
+      if (duplicates.length > 1) {
+        $scope.error = 'There is already a task with name ' + task.name;
+      }
     } else {
       $log.debug('saving task ' + task.name);
       // validation is done.. Save task

@@ -208,15 +208,14 @@ class GulpfileController
                return new HttpStatus(HttpStatus::STATUS_204_NO_CONTENT);
             }
     
-            for ($i=0; $i<count($tasks); $i++){
-                $task = $tasks[$i];
-                if ($name !== $task['name']){
-                    unset($tasks[$i]);
-                    break;
+           foreach ($tasks as $key => $task){
+                if ($name === $task['name']){
+                    unset($tasks[$key]);
+                    break; // found the task with unique name... 
                 }
             }
             
-    
+            $gulpfile->set('tasks', array_values($tasks)); // re-index array
             $db->save($gulpfile);
     
             return new HttpStatus(HttpStatus::STATUS_200_OK, new Json($tasks));
