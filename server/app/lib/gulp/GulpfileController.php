@@ -92,7 +92,7 @@ class GulpfileController
     }
 
     /**
-     * Stores a new model
+     * Stores a new gulpfile
      *
      * @return HttpStatus 201 | 204 | 401 | 409 | 422 //
      *         201 created with a location header to the new /model/{id} containing the new ID,

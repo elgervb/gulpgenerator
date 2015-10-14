@@ -47,11 +47,12 @@ class GulpFileControllerTest extends \PHPUnit_Framework_TestCase {
 	}
 	
 	public function testPost201Created(){
-		$_POST['guid'] = Random::guid();
-		$_POST['version'] = 'v1.0.0';
-		$_POST['tasks'] = [['name' =>Random::alphaNum(10), 'description'=>'test gulpfile', 'src'=>'./src', 'dist'=>'./dest']];
+		$_POST['version'] = 'v1.0.0'; 
+		$_POST['name'] = Random::alphaNum(10);
+		$_POST['description'] = Random::alphaNum(10);
+		//$_POST['tasks'] = [['name' => Random::alphaNum(10), 'description'=>'test gulpfile', 'src'=>'./src', 'dist'=>'./dest']];
 		$response = GulpfileController::instance()->post();
-	
+
 		$this->assertTrue($response instanceof HttpStatus);
 		$this->assertEquals(201, $response->getHttpCode(), "Check the http status code");
 		
@@ -60,9 +61,8 @@ class GulpFileControllerTest extends \PHPUnit_Framework_TestCase {
 	
 	public function testAddTask(){
 		$task = $this->testPost201Created();
-		$this->assertNotEmpty($task->{"guid"});
-		$this->assertTrue(is_array($task->{"tasks"}));
-		$this->assertGreaterThanOrEqual(1, count($task->{'tasks'}));
+		$this->assertNotEmpty($task->{"guid"}, "Guid must be filled in");
+		$this->assertObjectNotHasAttribute('tasks', $task);
 		
 		// reset post
 		$_POST = [];
@@ -74,7 +74,7 @@ class GulpFileControllerTest extends \PHPUnit_Framework_TestCase {
 		// add task
 		$response = GulpfileController::instance()->addtask($task->{"guid"});
 		$task = $response->getContent()->getObject();
-		$this->assertEquals($_POST['type'], $task->{"type"});
-		$this->assertEquals($_POST['name'], $task->{'name'});
+		$this->assertEquals($_POST['type'], $task[0]->{"type"});
+		$this->assertEquals($_POST['name'], $task[0]->{'name'});
 	}
 }
