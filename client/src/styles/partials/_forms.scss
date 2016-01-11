@@ -34,7 +34,8 @@
     }
     &:required{
       &:invalid{
-        @extend &:empty;
+        border: 1px solid #cecece;
+        box-shadow: none;
       }
       &:after {
         content: "!";
