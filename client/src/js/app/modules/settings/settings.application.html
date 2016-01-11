@@ -1,0 +1,44 @@
+<div class="group">
+  
+  <h2>Application</h2>
+  
+  <div class="field">
+    <label for="name">Name *</label>
+      <input type="text" id="name" placeholder="name of the application" name="name" ng-model="settings.name" ng-model-options="{updateOn:'blur'}" autofocus required/>
+  </div>
+  <div ng-messages="form.name.$error" ng-show="form.name.$touched">
+    <div ng-message="required">This field is required</div>
+  </div>
+  
+  <div class="field">
+    <label for="description">Description *</label>
+    <textarea id="description" placeholder="description of the application" name="description" ng-model="settings.description" required></textarea> 
+  </div>
+  <div ng-messages="form.description.$error" ng-show="form.description.$touched">
+    <div ng-message="required">This field is required</div>
+  </div>
+  
+  <div class="field">
+    <label for="version">version *</label>
+    <input type="number" id="version-major" min="0" class="version" placeholder="major" name="major" ng-model="settings.version.major" ng-model-options="{updateOn:'blur'}" required/> .
+    <input type="number" id="version-minor" min="0" class="version" placeholder="minor" name="minor" ng-model="settings.version.minor" ng-model-options="{updateOn:'blur'}" required/> .
+    <input type="number" id="version-patch" min="0" class="version" placeholder="patch" name="patch" ng-model="settings.version.patch" ng-model-options="{updateOn:'blur'}" required/> 
+  </div>
+  <div ng-messages="form.major.$error" ng-show="form.major.$touched">
+    <div ng-message="required">Field major is required</div>
+    <div ng-message="min">Minimum value is 0</div>
+  </div>
+  <div ng-messages="form.minor.$error" ng-show="form.minor.$touched">
+    <div ng-message="required">Field minor is required</div>
+    <div ng-message="min">Minimum value is 0</div>
+  </div>
+  <div ng-messages="form.patch.$error" ng-show="form.patch.$touched">
+    <div ng-message="required">Field patch is required</div>
+    <div ng-message="min">Minimum value is 0</div>
+  </div>
+  
+  <div class="field">
+      <a class="btn-cancel btn-link" href="/#/">Cancel</a>
+      <button class="btn-next" ng-disabled="!form.$valid" ng-click="next('settings.repository')">Continue</button>
+  </div>
+</div>

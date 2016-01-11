@@ -1,4 +1,4 @@
 /* global angular */
-angular.module('gulpgenerator.index').controller('IndexController', () => {
+angular.module('gulpgenerator.index').controller('index.controller', () => {
 
 });

@@ -1,0 +1,12 @@
+<div class="group">
+  
+  <h3>Overview of gulpfile {{settings.name}}</h3>
+  
+  <code><pre>{{settings |json}}</pre></code>
+  <div class="field">
+      <a class="btn-cancel btn-link" href="/#/">Cancel</a>
+      <button class="btn-next" ng-click="next('settings.defaults')">Back</button>
+      <button class="btn-next" ng-disabled="!form.$valid" ng-click="save()">Confirm</button>
+  </div>
+  
+</div>

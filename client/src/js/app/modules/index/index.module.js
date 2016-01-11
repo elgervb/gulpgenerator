@@ -2,10 +2,8 @@
 (() => {
   let module = angular.module('gulpgenerator.index', ['ui.router', 'ngMessages']);
   
-  module.config(($urlRouterProvider, $stateProvider) => {
-    // For any unmatched url, redirect to /list
-    $urlRouterProvider.otherwise('/');
-    
+  module.config(($stateProvider) => {
+
     $stateProvider
     .state('index', {
       url: '/',

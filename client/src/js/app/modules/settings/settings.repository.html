@@ -1,0 +1,27 @@
+<div class="group">
+  
+  <h3>Repository</h3>
+  
+  <div class="field">
+    <label for="repository_type">Repository type</label>
+    <input type="text" id="repository_type" placeholder="repository type (eg. git)" ng-model="settings.repository.type" list="sc-systems" /> 
+  </div>
+  <datalist id="sc-systems">
+    <option value="git" />
+    <option value="mercurial" />
+    <option value="svn" />
+    <option value="cvs" />
+  </datalist>
+  
+  <div class="field">
+    <label for="repository_url">Repository url</label>
+    <input type="url" id="repository_url" placeholder="repository url" ng-model="settings.repository.url" /> 
+  </div>
+  
+  <div class="field">
+      <a class="btn-cancel btn-link" href="/#/">Cancel</a>
+      <button class="btn-next" ng-click="next('settings.app')">Back</button>
+      <button class="btn-next" ng-disabled="!form.$valid" ng-click="next('settings.author')">Continue</button>
+  </div>
+  
+</div>

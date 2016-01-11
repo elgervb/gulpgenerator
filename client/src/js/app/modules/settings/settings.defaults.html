@@ -1,0 +1,35 @@
+<div class="group">
+  
+  <h3>Defaults</h3>
+  
+  <div class="field">
+    <label for="settings_src">Source directory *</label>
+    <input type="text" id="settings_src" placeholder="default source directory" name="src" ng-model="settings.defaults.src" required /> 
+  </div>
+  <div ng-messages="form.src.$error" ng-show="form.src.$touched">
+    <div ng-message="required">This field is required</div>
+  </div>
+  
+  <div class="field">
+    <label for="settings_dist">Destination directory *</label>
+    <input type="text" id="settings_dist" placeholder="default destination directory" name="dist" ng-model="settings.defaults.dist" required /> 
+  </div>
+  <div ng-messages="form.dist.$error" ng-show="form.dist.$touched">
+    <div ng-message="required">This field is required</div>
+  </div>
+  
+  <div class="field">
+    <label for="settings_reports">Report directory *</label>
+    <input type="text" id="settings_reports" placeholder="default reports directory" name="reports" ng-model="settings.defaults.reports" required /> 
+  </div>
+  <div ng-messages="form.reports.$error" ng-show="form.reports.$touched">
+    <div ng-message="required">This field is required</div>
+  </div>
+  
+  <div class="field">
+    <a class="btn-cancel btn-link" href="/#/">Cancel</a>
+    <button class="btn-next" ng-click="next('settings.author')">Back</button>
+    <button class="btn-next" ng-disabled="!form.$valid" ng-click="next('settings.confirm')">Continue</button>
+  </div>
+  
+</div>
