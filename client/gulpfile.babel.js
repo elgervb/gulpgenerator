@@ -330,7 +330,7 @@ gulp.task('start', ['browser-sync']);
  *
  * @see https://github.com/sass/node-sass for configuration
  */
-gulp.task('styles', [ 'styles-vendor', 'styles-copy-sass'], () => {
+gulp.task('styles', ['styles-vendor', 'styles-copy-sass'], () => {
   let autoprefixer = require('gulp-autoprefixer');
   let cmq = require('gulp-group-css-media-queries');
   let minifycss = require('gulp-minify-css');
