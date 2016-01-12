@@ -24,7 +24,7 @@
         <div class="task-body-inner" name="taskform">
           <p>Type: {{task.type}}</p>
           <!-- iterate through the configured fields -->
-          <div class="field clearfix" ng-repeat="(key, field) in task.fields">
+          <div class="field" ng-repeat="(key, field) in task.fields">
             
             <label>{{field.name}}</label>
 
