@@ -7,8 +7,9 @@
       <input type="text" id="name" placeholder="name of the application" name="name" maxlength="214" ng-model="settings.name" ng-model-options="{updateOn:'blur'}" packagename autofocus required/>
   </div>
   <div ng-messages="form.name.$error" ng-show="form.name.$touched">
-    <div ng-message="required">The name of the application is required</div>
-    <div ng-message="maxlength">The name of the application can only contain 214 characters</div>
+    <div ng-message="required" class="message">The name of the application is required</div>
+    <div ng-message="maxlength" class="message">The name of the application can only contain 214 characters</div>
+    <div ng-message="packagename" class="message">The name of the application can only contain lowercast alphanumeric chars and cannot begin with a . or _</div>
   </div>
   
   <div class="field">
@@ -16,7 +17,7 @@
     <textarea id="description" placeholder="description of the application" name="description" ng-model="settings.description" required></textarea> 
   </div>
   <div ng-messages="form.description.$error" ng-show="form.description.$touched">
-    <div ng-message="required">This field is required</div>
+    <div ng-message="required" class="message">This field is required</div>
   </div>
   
   <div class="field">
@@ -26,16 +27,16 @@
     <input type="number" id="version-patch" min="0" class="version" placeholder="patch" name="patch" ng-model="settings.version.patch" ng-model-options="{updateOn:'blur'}" required/> 
   </div>
   <div ng-messages="form.major.$error" ng-show="form.major.$touched">
-    <div ng-message="required">Field major is required</div>
-    <div ng-message="min">Minimum value is 0</div>
+    <div ng-message="required" class="message">Field major is required</div>
+    <div ng-message="min" class="message">Minimum value is 0</div>
   </div>
   <div ng-messages="form.minor.$error" ng-show="form.minor.$touched">
-    <div ng-message="required">Field minor is required</div>
-    <div ng-message="min">Minimum value is 0</div>
+    <div ng-message="required" class="message">Field minor is required</div>
+    <div ng-message="min" class="message">Minimum value is 0</div>
   </div>
   <div ng-messages="form.patch.$error" ng-show="form.patch.$touched">
-    <div ng-message="required">Field patch is required</div>
-    <div ng-message="min">Minimum value is 0</div>
+    <div ng-message="required" class="message">Field patch is required</div>
+    <div ng-message="min" class="message">Minimum value is 0</div>
   </div>
   
   <div class="field">
@@ -43,7 +44,7 @@
       <input type="text" id="licence" placeholder="licence type" name="licence" ng-model="settings.licence" ng-model-options="{updateOn:'blur'}" required list="licenses" />
   </div>
   <div ng-messages="form.licence.$error" ng-show="form.licence.$touched">
-    <div ng-message="required">Licence is required</div>
+    <div ng-message="required" class="message">Licence is required</div>
   </div>
   <datalist id="licenses">
     <option value="ISC" />
@@ -62,7 +63,7 @@
   </div>
   
   
-  <div class="field">
+  <div class="field buttons">
       <a class="btn-cancel btn-link" href="/#/">Cancel</a>
       <button class="btn-next" ng-disabled="!form.$valid" ng-click="next('settings.repository')">Continue</button>
   </div>

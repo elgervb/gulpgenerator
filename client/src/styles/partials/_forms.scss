@@ -1,22 +1,22 @@
 .field{
-  padding: 4px 0;
+  display: flex;
+  padding: .2rem 0;
   position: relative;
-
-  @extend .clearfix;
 
   label{
     cursor: pointer;
     display: block;
-    float: left;
-    padding: 4px 0;
+    padding: .2rem 0;
     width: 220px;
   }
   input, textarea{
     border: 1px solid #cecece;
     border-radius: 0;
     margin: 0;
-    padding: 4px;
-    width: 220px;
+    outline: none;
+    padding: .2rem;
+    width: 13.75rem;
+    
     &[type=radio], &[type=checkbox]{
       width: auto;
     }
@@ -24,44 +24,35 @@
     &[type=radio], &[type=checkbox],&[type=range]{
       border:none;
     }
-    &:empty{
-      border: 1px solid #cecece;
-      box-shadow: none;
-    }
-    &:invalid {
-      border: 1px solid #ce1e1e;
-      box-shadow: 0 0 1px #ce1e1e;
-    }
-    &:required{
-      &:invalid{
-        border: 1px solid #cecece;
-        box-shadow: none;
-      }
-      &:after {
-        content: "!";
-      }
-    }
     &.full-width{
       width: 100%;
     }
   }
   .radio-group{
-    float: left;
-    width: 220px;
+    width: 13.75rem;
 
     label{ 
       display: inline;
-      float: none;
-      width: auto;
     }
   }
+  
   textarea{
-    height: 69px; // 3 lines
+    height: 5em; // 3 lines
+    resize: vertical;
   }
   
   .error{
     margin-left: 220px;
   }
+}
+
+.buttons {
+  justify-content: center;
+  margin: 2em 0;
+}
+.message {
+  padding-left: 50%;
+  text-align: left;
 }
 
 .divider {

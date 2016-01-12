@@ -7,7 +7,7 @@
     <input type="text" id="settings_src" placeholder="default source directory" name="src" ng-model="settings.defaults.src" required /> 
   </div>
   <div ng-messages="form.src.$error" ng-show="form.src.$touched">
-    <div ng-message="required">This field is required</div>
+    <div ng-message="required" class="message">This field is required</div>
   </div>
   
   <div class="field">
@@ -15,7 +15,7 @@
     <input type="text" id="settings_dist" placeholder="default destination directory" name="dist" ng-model="settings.defaults.dist" required /> 
   </div>
   <div ng-messages="form.dist.$error" ng-show="form.dist.$touched">
-    <div ng-message="required">This field is required</div>
+    <div ng-message="required" class="message">This field is required</div>
   </div>
   
   <div class="field">
@@ -23,7 +23,7 @@
     <input type="text" id="settings_reports" placeholder="default reports directory" name="reports" ng-model="settings.defaults.reports" required /> 
   </div>
   <div ng-messages="form.reports.$error" ng-show="form.reports.$touched">
-    <div ng-message="required">This field is required</div>
+    <div ng-message="required" class="message">This field is required</div>
   </div>
   
   <div class="field">
@@ -31,10 +31,10 @@
     <input type="text" id="settings_tests" placeholder="default test directory" name="test" ng-model="settings.defaults.test" required /> 
   </div>
   <div ng-messages="form.reports.$error" ng-show="form.reports.$touched">
-    <div ng-message="required">This field is required</div>
+    <div ng-message="required" class="message">This field is required</div>
   </div>
   
-  <div class="field">
+  <div class="field buttons">
     <a class="btn-cancel btn-link" href="/#/">Cancel</a>
     <button class="btn-next" ng-click="next('settings.author')">Back</button>
     <button class="btn-next" ng-disabled="!form.$valid" ng-click="next('settings.confirm')">Continue</button>
