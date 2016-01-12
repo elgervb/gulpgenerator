@@ -1,6 +1,6 @@
 
 .fixed-title {
-    background: $white;
+    background: $white-regular;
     box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.3);
     height: 80px;
     left: 0;
@@ -19,7 +19,7 @@
 }
 
 .task-list{
-  background: $white;
+  background: $white-regular;
   color: $dark;
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1);
   margin: 100px auto 0;
@@ -28,7 +28,7 @@
 }
 
 .predefined{
-  background-color: $white;
+  background-color: $white-regular;
   color: $dark;
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1);
   margin: 100px auto 0;
@@ -71,7 +71,7 @@
   }
 
   .task-body{
-    background-color: $white;
+    background-color: $white-regular;
     color: $dark;
     max-height: 0;
     margin: 0 auto 2em;
@@ -111,7 +111,7 @@
     .field input[type=text]{
       border: none;
       border-bottom: 1px dotted $dark;
-      background-color: $white;
+      background-color: $white-regular;
       color: $black;
     }
 

@@ -4,48 +4,52 @@
   max-width: 850px;
   text-align: center;
   width: 100%;
-
-  .guid{
-    font-weight: 500;
-    border: 1px solid white;
-    padding: 8px 5px 5px;
-    margin-bottom: 1em;
-  }
   
+  ::placeholder{
+    color:rgba($white-regular,.5);
+  }
+
   .group{
     margin-bottom: 4rem;
   }
 
   label{
+    padding-right: 1em;
     text-align: right;
+    width: 50%;
   }
 
-  .field input, .field textarea{
-    // TODO fix this in _forms.scss for selector .field input:empty, .field input:required:invalid, .field textarea:empty, .field textarea:required:invalid
-    border: none !important;
-    border-bottom: 1px dotted $white !important;
-    background-color: transparent;
-    color: $white;
+  .field { 
+    input, textarea{
+      // TODO fix this in _forms.scss for selector .field input:empty, .field input:required:invalid, .field textarea:empty, .field textarea:required:invalid
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px dotted $white-regular;
+      color: $white-regular;
+    }
+    textarea{
+      max-height: 16rem;
+    }
+    
+    .version{
+      width: 4.2em;
+    }
   }
-  .field textarea{
-    height: 4rem;
-    max-height: 16rem;
-    resize: vertical;
-  }
-  .field .version{
-    width: 4.2em;
-  }
+  
   .btn-cancel{
-    color: $white;
-    &:hover{
-      border-bottom-color: $white;
+    color: $white-regular;
+    &:hover, &:focus{
+      border-bottom-color: $white-regular;
     }
   }
   .btn-save, .btn-next{
-    background-color: $white;
+    background-color: $white-regular;
+    margin: 0 .5rem;
   }
-
-  ::placeholder{
-    color:rgba(255,255,255,.5);
+  
+  .overview-json {
+    padding-left: 25%;
+    text-align: left;
+    
   }
 }

@@ -19,7 +19,7 @@
 
 body{
   background-color: $gulp-red;
-  color: $white;
+  color: $white-regular;
 }
 
 /*
@@ -37,9 +37,9 @@ body{
  * Round button white
  */
 .gulp-button{
-  border: 2px solid $white;
+  border: 2px solid $white-regular;
   border-radius: 50%;
-  color: $white;
+  color: $white-regular;
   display: block;
   font-size: 2em;
   font-weight: 500;
