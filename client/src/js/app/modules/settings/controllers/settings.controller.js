@@ -14,12 +14,18 @@
       }
     };
     
+    // TODO for now, get it from local storage
+    let gulpfile = localStorage.getItem('gulpfile');
+    if (gulpfile) {
+      $scope.settings = JSON.parse(gulpfile);
+    }
+    
     $scope.next = (state) => {
       $state.go(state);
     };
     
     $scope.save = () => {
-      
+      localStorage.setItem('gulpfile', JSON.stringify($scope.settings));
     };
   
   });
