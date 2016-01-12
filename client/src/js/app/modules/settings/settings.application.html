@@ -4,10 +4,11 @@
   
   <div class="field">
     <label for="name">Name *</label>
-      <input type="text" id="name" placeholder="name of the application" name="name" ng-model="settings.name" ng-model-options="{updateOn:'blur'}" autofocus required/>
+      <input type="text" id="name" placeholder="name of the application" name="name" maxlength="214" ng-model="settings.name" ng-model-options="{updateOn:'blur'}" packagename autofocus required/>
   </div>
   <div ng-messages="form.name.$error" ng-show="form.name.$touched">
-    <div ng-message="required">This field is required</div>
+    <div ng-message="required">The name of the application is required</div>
+    <div ng-message="maxlength">The name of the application can only contain 214 characters</div>
   </div>
   
   <div class="field">
@@ -36,6 +37,30 @@
     <div ng-message="required">Field patch is required</div>
     <div ng-message="min">Minimum value is 0</div>
   </div>
+  
+  <div class="field">
+    <label for="licence">Licence *</label>
+      <input type="text" id="licence" placeholder="licence type" name="licence" ng-model="settings.licence" ng-model-options="{updateOn:'blur'}" required list="licenses" />
+  </div>
+  <div ng-messages="form.licence.$error" ng-show="form.licence.$touched">
+    <div ng-message="required">Licence is required</div>
+  </div>
+  <datalist id="licenses">
+    <option value="ISC" />
+    <option value="MIT" />
+    <option value="Apache-2.0" />
+    <option value="UNLICENSED" />
+    <option value="private" />
+    <option value="GNU General Public License" />
+    <option value="GNU Lesser General Public License" />
+    <option value="Mozilla Public License" />
+  </datalist>
+  
+  <div class="field">
+    <label for="keywords">Keywords (comma separated)</label>
+    <input type="text" id="keywords" placeholder="keywords describing this application" name="keywords" ng-model="settings.keywords" ng-model-options="{updateOn:'blur'}" />
+  </div>
+  
   
   <div class="field">
       <a class="btn-cancel btn-link" href="/#/">Cancel</a>
