@@ -32,6 +32,8 @@
     "tests": "./tests/",
     "serverport": 4000,
     "jsSources": [
+      "./src/js/app/index/**/*.js",
+      "./src/js/app/settings/**/*.js",
       "./src/js/app/**/*.js"
     ]
   },

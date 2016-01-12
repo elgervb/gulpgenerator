@@ -8,27 +8,27 @@
     .state('settings', {
       url: '/settings',
       controller: 'settings.controller',
-      templateUrl: 'modules/settings/settings.html'
+      templateUrl: 'modules/settings/controllers/settings.html'
     })
       .state('settings.app', {
         url: '/app',
-        templateUrl: 'modules/settings/settings.application.html'
+        templateUrl: 'modules/settings/controllers/settings.application.html'
       })
       .state('settings.repository', {
         url: '/repository',
-        templateUrl: 'modules/settings/settings.repository.html'
+        templateUrl: 'modules/settings/controllers/settings.repository.html'
       })
       .state('settings.author', {
         url: '/author',
-        templateUrl: 'modules/settings/settings.author.html'
+        templateUrl: 'modules/settings/controllers/settings.author.html'
       })
       .state('settings.defaults', {
         url: '/defaults',
-        templateUrl: 'modules/settings/settings.defaults.html'
+        templateUrl: 'modules/settings/controllers/settings.defaults.html'
       })
       .state('settings.confirm', {
         url: '/confirm',
-        templateUrl: 'modules/settings/settings.confirm.html'
+        templateUrl: 'modules/settings/controllers/settings.confirm.html'
       });
   });
   

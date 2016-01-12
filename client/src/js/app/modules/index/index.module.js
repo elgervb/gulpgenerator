@@ -8,7 +8,7 @@
     .state('index', {
       url: '/',
       controller: 'index.controller',
-      templateUrl: 'modules/index/index.controller.html'
+      templateUrl: 'modules/index/controllers/index.controller.html'
     });
   });
   
