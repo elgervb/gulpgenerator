@@ -10,7 +10,7 @@ angular.module('gulpgenerator.settings').directive('packagename', () => {
         }
 
         // package name cannot start with a . or _
-        if (viewValue.indexOf('.') === 0 || viewValue.indefOf('_') === 0) {
+        if (viewValue.indexOf('.') === 0 || viewValue.indexOf('_') === 0) {
           return false;
         }
         
