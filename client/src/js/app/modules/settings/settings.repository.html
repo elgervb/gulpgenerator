@@ -19,6 +19,11 @@
   </div>
   
   <div class="field">
+    <label for="repository_bugs">Bugs url</label>
+    <input type="url" id="repository_bugs" placeholder="repository bugs" ng-model="settings.repository.bugs" /> 
+  </div>
+  
+  <div class="field">
       <a class="btn-cancel btn-link" href="/#/">Cancel</a>
       <button class="btn-next" ng-click="next('settings.app')">Back</button>
       <button class="btn-next" ng-disabled="!form.$valid" ng-click="next('settings.author')">Continue</button>
