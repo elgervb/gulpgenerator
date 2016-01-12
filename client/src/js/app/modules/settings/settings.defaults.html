@@ -27,6 +27,14 @@
   </div>
   
   <div class="field">
+    <label for="settings_tests">Tests directory *</label>
+    <input type="text" id="settings_tests" placeholder="default test directory" name="test" ng-model="settings.defaults.test" required /> 
+  </div>
+  <div ng-messages="form.reports.$error" ng-show="form.reports.$touched">
+    <div ng-message="required">This field is required</div>
+  </div>
+  
+  <div class="field">
     <a class="btn-cancel btn-link" href="/#/">Cancel</a>
     <button class="btn-next" ng-click="next('settings.author')">Back</button>
     <button class="btn-next" ng-disabled="!form.$valid" ng-click="next('settings.confirm')">Continue</button>

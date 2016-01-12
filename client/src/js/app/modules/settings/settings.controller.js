@@ -9,7 +9,8 @@
       defaults: {
         src: './src/',
         dist: './dist/',
-        reports: './reports/'
+        reports: './reports/',
+        test: './tests/'
       }
     };
     
