@@ -5,7 +5,7 @@ use handler\json\JsonHandler;
 use handler\http\HttpStatusHandler;
 use handler\http\HttpStatus;
 
-include __DIR__ . '/vendor/autoload.php';
+include __DIR__ . '/../vendor/autoload.php';
 
 // all dates in UTC timezone
 date_default_timezone_set("UTC");
