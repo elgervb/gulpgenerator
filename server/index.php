@@ -1,10 +1,24 @@
-<?php
-use compact\mvvm\FrontController;
-include_once 'vendor/elgervb/compact/classes/compact/ClassLoader.php';
-include_once 'vendor/autoload.php';
-compact\ClassLoader::create()
-    ->addClassPath(__DIR__."/app")
-    ->addClassPath(__DIR__."/app/lib");
+<?php 
+use router\Router;
+use handler\Handlers;
+use handler\json\JsonHandler;
+use handler\http\HttpStatusHandler;
+use handler\http\HttpStatus;
 
-$fc = new FrontController();
-$fc->run();
+include __DIR__ . '/vendor/autoload.php';
+
+// all dates in UTC timezone
+date_default_timezone_set("UTC");
+ini_set('date.timezone', 'UTC');
+
+$router = new Router();
+Handlers::get()->add(new JsonHandler());
+Handlers::get()->add(new HttpStatusHandler());
+
+/**
+ * 
+ */
+$router->route('root', '/', function ()
+{
+    return new HttpStatus(200);
+});
