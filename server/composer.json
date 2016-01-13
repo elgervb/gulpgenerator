@@ -18,6 +18,12 @@
 		"phpunit/phpunit" : "^4.8"
 	},
 	"autoload" : {
+		"psr-0" : {
+			"gulp" : [
+				"server/app",
+				"server/tests"
+			]
+		},
 		"classmap" : [
 			"app/"
 		]
@@ -30,10 +36,5 @@
 			"type" : "vcs",
 			"url" : "https://github.com/elgervb/compact"
 		}
-	],
-	"autoload-dev" : {
-		"classmap" : [
-			"tests/"
-		]
-	}
+	]
 }
