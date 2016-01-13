@@ -1,4 +1,4 @@
-bootstrap=\\gulpgenerator\\server\\app\\tests\\PHPUnitBootstrap.php
+bootstrap=\\gulpgenerator\\server\\tests\\PHPUnitBootstrap.php
 debug_print_output=true
 eclipse.preferences.version=1
 generate_code_coverage=true
