@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<phpunit bootstrap="./app/tests/PHPUnitBootstrap.php" colors="true">
+<phpunit bootstrap="./tests/PHPUnitBootstrap.php" colors="true">
 
     <testsuites>
         <testsuite name="GulpGenerator Test Suite">
-            <directory>./app/tests/</directory>
+            <directory>./tests/</directory>
         </testsuite>
     </testsuites>
 
@@ -12,7 +12,8 @@
         <whitelist>
             <directory>./</directory>
             <exclude>
-                <directory>./app/tests</directory>
+                <directory>./tests</directory>
+                <directory>./vendor</directory>
             </exclude>
         </whitelist>
     </filter>
