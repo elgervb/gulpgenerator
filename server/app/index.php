@@ -22,3 +22,17 @@ $router->route('root', '/', function ()
 {
     return new HttpStatus(200);
 });
+
+$result = $router->match($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
+
+$handler = Handlers::get()->getHandler($result);
+
+if ($handler) {
+    $handler->handle($result);
+} else {
+    $error = new HttpStatus(404, ' ');
+    $handler = Handlers::get()->getHandler($error);
+    $handler->handle($error);
+}
+
+return $result; // for testing purposes
