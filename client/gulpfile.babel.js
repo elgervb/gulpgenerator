@@ -345,6 +345,7 @@ gulp.task('styles', ['styles-vendor', 'styles-copy-sass'], () => {
     precision: 5,
     sourceComments: argv.dev ? true : false
   }))
+  .on('error', sass.logError)
   .pipe(rename({
     basename: 'styles'
   }))
