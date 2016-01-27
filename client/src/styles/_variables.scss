@@ -1,7 +1,19 @@
 /**
  * Colors
  */
+// Default fonts
+$default-font-stack: Arial, Helvetica, sans-serif !default;
+
+// base font size for entire application
+$base-font-size: 12px !default;
+
+/* animations */
+$animation-duration: .2s !default;
+$animation-easing: ease-in !default; 
+
 $white-regular: #ffffff;
+$black-regular: #3F4751 !default;
+$grey-dark: #666666;
  
 $font-color: #333333;
 $font-color-light: #f2f2f2;
@@ -10,7 +22,6 @@ $gulp-red: #CF4646;
 $dark: #666;
 $black: #000;
 $light-grey: #eeeeee;
-
 
 $light-regular: #f2f2f2;
 /**
