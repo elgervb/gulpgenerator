@@ -7,4 +7,7 @@ angular.module('gulpfile.settings').service('gulpfile', ($http) => {
     });
   };
   
+  return {
+    load
+  };
 });
