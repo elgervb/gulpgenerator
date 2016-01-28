@@ -20,8 +20,10 @@ $gulp-red: #CF4646;
 
 @import 'modules/messagebox';
 
-
-body{
+html, body {
+  height: 100%;
+}
+body {
   background-color: $gulp-red;
   color: $white-regular;
 }

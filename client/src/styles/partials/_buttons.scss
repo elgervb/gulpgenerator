@@ -11,7 +11,7 @@
   font-size: 1em; 
   font-weight: 300;
   margin: 0;
-  padding: 8px 25.6px;
+  padding: .5rem 1.6rem;
   text-decoration: none;
   text-align: center;
   transition: background .3s ease-out;
@@ -96,13 +96,13 @@
 }
 
 .button-group{
-  padding: 10px 0;
+  padding: .8rem 0;
 }
 .btn-link{
   background: transparent;
   border: 1px solid transparent;
   color: #4082a0;
-  margin: 7px 23px;
+  margin: 0.4375rem 1.4375rem;
   padding: 2px;
   transition: border .3s ease-out 0s;
 

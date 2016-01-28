@@ -1,11 +1,8 @@
 /*
  * Set base font
  */
- html{
+html{
   font-size: $base-font-size;
-}
-html, body, .full-screen{
-  height: 100%;
 }
 body, input, textarea, select{
   color:  $black-regular;
@@ -31,11 +28,11 @@ img{
   max-width: 100%;
 }
 p {
-  padding-bottom: 15px;
+  padding-bottom: 1rem;
 }
 ol {
-  margin-left: 18px;
-  padding-bottom: 15px;
+  margin-left: 1.125rem;
+  padding-bottom: 1rem;
 }
 ul {
   list-style: none;
@@ -43,30 +40,30 @@ ul {
 h1 {
     font-size: 2.4em;
     font-weight: lighter;
-    padding: 0 0 25px;
+    padding: 0 0 1.5625rem;
 }
 h2 {
     font-size: 1.8em;
     font-weight: 300;
-    padding: 0 0 15px;
+    padding: 0 0 1rem;
 }
 h3 {
   font-size: 1.4em;
   font-weight: 300;
-  padding: 0 0 15px;
+  padding: 0 0 1rem;
 }
 h4 {
   font-size: 1.2em;
   font-weight: 300;
-  padding: 0 0 15px;
+  padding: 0 0 1rem;
 }
 h5 {
   font-size: 1.1em;
   font-weight: 300;
-  padding: 0 0 15px;
+  padding: 0 0 1rem;
 }
 h6 {
   font-size: 1.0em;
   font-weight: 300;
-  padding: 0 0 15px;
+  padding: 0 0 1rem;
 }

@@ -1,6 +1,5 @@
 $OpenSansPath: "../fonts/opensans/" !default;
 
-/* BEGIN Light */
 @font-face {
   font-family: 'Open Sans';
   src: url('#{$OpenSansPath}/Light/OpenSans-Light.eot');
@@ -11,10 +10,6 @@ $OpenSansPath: "../fonts/opensans/" !default;
   font-weight: 300;
   font-style: normal;
 }
-
-/* END Light */
-
-/* BEGIN Light Italic */
 @font-face {
   font-family: 'Open Sans';
   src: url('#{$OpenSansPath}/LightItalic/OpenSans-LightItalic.eot');
@@ -25,10 +20,6 @@ $OpenSansPath: "../fonts/opensans/" !default;
   font-weight: 300;
   font-style: italic;
 }
-
-/* END Light Italic */
-
-/* BEGIN Regular */
 @font-face {
   font-family: 'Open Sans';
   src: url('#{$OpenSansPath}/Regular/OpenSans-Regular.eot');
@@ -39,10 +30,6 @@ $OpenSansPath: "../fonts/opensans/" !default;
   font-weight: normal;
   font-style: normal;
 }
-
-/* END Regular */
-
-/* BEGIN Italic */
 @font-face {
   font-family: 'Open Sans';
   src: url('#{$OpenSansPath}/Italic/OpenSans-Italic.eot');
@@ -53,10 +40,6 @@ $OpenSansPath: "../fonts/opensans/" !default;
   font-weight: normal;
   font-style: italic;
 }
-
-/* END Italic */
-
-/* BEGIN Semibold */
 @font-face {
   font-family: 'Open Sans';
   src: url('#{$OpenSansPath}/Semibold/OpenSans-Semibold.eot');
@@ -67,10 +50,6 @@ $OpenSansPath: "../fonts/opensans/" !default;
   font-weight: 600;
   font-style: normal;
 }
-
-/* END Semibold */
-
-/* BEGIN Semibold Italic */
 @font-face {
   font-family: 'Open Sans';
   src: url('#{$OpenSansPath}/SemiboldItalic/OpenSans-SemiboldItalic.eot');
@@ -81,10 +60,6 @@ $OpenSansPath: "../fonts/opensans/" !default;
   font-weight: 600;
   font-style: italic;
 }
-
-/* END Semibold Italic */
-
-/* BEGIN Bold */
 @font-face {
   font-family: 'Open Sans';
   src: url('#{$OpenSansPath}/Bold/OpenSans-Bold.eot');
@@ -95,10 +70,6 @@ $OpenSansPath: "../fonts/opensans/" !default;
   font-weight: bold;
   font-style: normal;
 }
-
-/* END Bold */
-
-/* BEGIN Bold Italic */
 @font-face {
   font-family: 'Open Sans';
   src: url('#{$OpenSansPath}/BoldItalic/OpenSans-BoldItalic.eot');
@@ -109,10 +80,6 @@ $OpenSansPath: "../fonts/opensans/" !default;
   font-weight: bold;
   font-style: italic;
 }
-
-/* END Bold Italic */
-
-/* BEGIN Extrabold */
 @font-face {
   font-family: 'Open Sans';
   src: url('#{$OpenSansPath}/ExtraBold/OpenSans-ExtraBold.eot');
@@ -123,10 +90,6 @@ $OpenSansPath: "../fonts/opensans/" !default;
   font-weight: 800;
   font-style: normal;
 }
-
-/* END Extrabold */
-
-/* BEGIN Extrabold Italic */
 @font-face {
   font-family: 'Open Sans';
   src: url('#{$OpenSansPath}/ExtraBoldItalic/OpenSans-ExtraBoldItalic.eot');
@@ -137,4 +100,3 @@ $OpenSansPath: "../fonts/opensans/" !default;
   font-weight: 800;
   font-style: italic;
 }
-/* END Extrabold Italic */
