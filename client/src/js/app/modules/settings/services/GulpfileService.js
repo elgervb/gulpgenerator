@@ -1,9 +1,9 @@
 /* global angular */
-angular.module('gulpfile.settings').service('gulpfile', ($http) => {
+angular.module('gulpgenerator.settings').service('gulpfile', ($http, baseUrl) => {
   
   let load = () => {
     return $http.get({
-      url: 'http://localhost:4011/'
+      url: baseUrl
     });
   };
   
