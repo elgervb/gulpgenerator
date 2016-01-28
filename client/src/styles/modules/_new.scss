@@ -1,9 +1,13 @@
 .new-gulpfile{
   display: block;
-  margin: 100px auto 0;
+  margin: 6.25rem auto 0;
   max-width: 850px;
   text-align: center;
   width: 100%;
+  
+  @include phone {
+    margin-top: 1rem; 
+  }
   
   ::placeholder{
     color:rgba($white-regular,.5);
