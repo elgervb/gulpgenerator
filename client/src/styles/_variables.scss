@@ -2,7 +2,7 @@
  * Colors
  */
 // Default fonts
-$default-font-stack: Arial, Helvetica, sans-serif !default;
+$default-font-stack: "Open Sans",Helvetica,Arial,sans-serif !default;
 
 // base font size for entire application
 $base-font-size: 16px !default;
@@ -11,29 +11,18 @@ $base-font-size: 16px !default;
 $animation-duration: .2s !default;
 $animation-easing: ease-in !default; 
 
-$white-regular: #ffffff;
+$white-regular: #ffffff !default;
+$black-dark: #000000 !default;
 $black-regular: #3F4751 !default;
-$grey-dark: #666666;
- 
-$font-color: #333333;
-$font-color-light: #f2f2f2;
+$grey-dark: #666666 !default;
+$grey-light: #f2f2f2 !default;
 
-$gulp-red: #CF4646;
-$dark: #666;
-$black: #000;
-$grey-light: #eeeeee;
+$red-regular: #e74c3c !default;
+$green-regular: #00B16A !default;
+$btn-turquoise: #1abc9c !default;
+$orange-regular: #e67e22 !default;
+$purple-regular: #9b59b6 !default;
+$blue-regular: #3498db !default;
+$yellow-regular: #E8C53A !default;
 
-$light-regular: #f2f2f2;
-/**
- * Buttons
- */
-$btn-gray: $grey-light;
-$btn-red: #e74c3c;
-$btn-green: #00B16A;
-$btn-turquoise: #1abc9c;
-$btn-orange: #e67e22;
-$btn-purple: #9b59b6;
-$btn-blue: #3498db;
-$btn-yellow: #E8C53A;
-
-$btn-hover-darken: 10%;
+$btn-hover-darken: 10% !default;

@@ -14,13 +14,13 @@
     h2{
       font-size: 3em;
       font-weight: 500;
-      color: $font-color;
+      color: $black-regular;
     }
 }
 
 .task-list{
   background: $white-regular;
-  color: $dark;
+  color: $grey-dark;
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1);
   margin: 100px auto 0;
   max-width: 850px;
@@ -29,7 +29,7 @@
 
 .predefined{
   background-color: $white-regular;
-  color: $dark;
+  color: $grey-dark;
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1);
   margin: 100px auto 0;
   max-width: 850px;
@@ -51,7 +51,7 @@
 
   .task-header{
     border-bottom: 1px solid #e3e3e3;
-    color: $black;
+    color: $black-regular;
     text-align: center;
 
     h2{
@@ -59,10 +59,10 @@
       font-size: 3em;
     
       a{
-        color: $dark;
+        color: $grey-dark;
       }
       &:hover a{
-        border-bottom: 1px solid $dark;
+        border-bottom: 1px solid $grey-dark;
       }
       input{
         text-align: center;
@@ -72,7 +72,7 @@
 
   .task-body{
     background-color: $white-regular;
-    color: $dark;
+    color: $grey-dark;
     max-height: 0;
     margin: 0 auto 2em;
     overflow: hidden;
@@ -94,7 +94,7 @@
     .close-btn{
       background: transparent url(../img/ok.png) no-repeat scroll center center / cover;
       border-color: transparent;
-      color: $dark;
+      color: $grey-dark;
       text-indent: -999999em;
     }
 
@@ -110,9 +110,9 @@
 
     .field input[type=text]{
       border: none;
-      border-bottom: 1px dotted $dark;
+      border-bottom: 1px dotted $grey-dark;
       background-color: $white-regular;
-      color: $black;
+      color: $black-regular;
     }
 
     .edit-toggle{

@@ -3,9 +3,9 @@
  **************************/
 .btn, [class*='btn-'] {
   appearance: none; // to override default mobile styling
-  background-color: $btn-gray;
-  border: 1px solid darken($btn-gray, $btn-hover-darken);
-  color: $font-color;
+  background-color: $grey-light;
+  border: 1px solid darken($grey-light, $btn-hover-darken);
+  color: $black-regular;
   cursor: pointer;
   display: inline-block;
   font-size: 1em; 
@@ -19,7 +19,7 @@
   vertical-align: middle;
 
   &:hover{
-    background-color: darken($btn-gray, $btn-hover-darken);
+    background-color: darken($grey-light, $btn-hover-darken);
   }
   &:focus {
     outline: none;
@@ -33,25 +33,25 @@
 }
 
 .btn-red{
-  color: $font-color-light;
-  background: $btn-red;
-  border-color: darken($btn-red, $btn-hover-darken);
+  color: $white-regular;
+  background: $red-regular;
+  border-color: darken($red-regular, $btn-hover-darken);
   &:hover{
-    background: darken($btn-red, $btn-hover-darken);
+    background: darken($red-regular, $btn-hover-darken);
   }
 }
 
 .btn-green{
-  color: $font-color-light;
-  background: $btn-green;
-  border-color: darken($btn-green, $btn-hover-darken);
+  color: $white-regular;
+  background: $green-regular;
+  border-color: darken($green-regular, $btn-hover-darken);
   &:hover{
-    background: darken($btn-green, $btn-hover-darken);
+    background: darken($green-regular, $btn-hover-darken);
   }
 }
 
 .btn-turquoise{
-  color: $font-color-light;
+  color: $white-regular;
   background: $btn-turquoise;
   border-color: darken($btn-turquoise, $btn-hover-darken);
   &:hover{
@@ -60,38 +60,38 @@
 }
 
 .btn-orange{
-  color: $font-color-light;
-  background:$btn-orange;
-  border-color: darken($btn-orange, $btn-hover-darken);
+  color: $white-regular;
+  background:$orange-regular;
+  border-color: darken($orange-regular, $btn-hover-darken);
   &:hover{
-    background: darken($btn-orange, $btn-hover-darken);
+    background: darken($orange-regular, $btn-hover-darken);
   }
 }
 
 .btn-purple{
-  color: $font-color-light;
-  background: $btn-purple;
-  border-color: darken($btn-purple, $btn-hover-darken);
+  color: $white-regular;
+  background: $purple-regular;
+  border-color: darken($purple-regular, $btn-hover-darken);
   &:hover{
-    background: darken($btn-purple, $btn-hover-darken);
+    background: darken($purple-regular, $btn-hover-darken);
   }
 }
 
 .btn-blue{
-  color: $font-color-light;
-  background: $btn-blue;
-  border-color: darken($btn-blue, $btn-hover-darken);
+  color: $white-regular;
+  background: $blue-regular;
+  border-color: darken($blue-regular, $btn-hover-darken);
   &:hover{
-    background: darken($btn-blue, $btn-hover-darken);
+    background: darken($blue-regular, $btn-hover-darken);
   }
 }
 
 .btn-yellow{
-  color: $font-color-light;
-  background: $btn-yellow;
-  border-color: darken($btn-yellow, $btn-hover-darken);
+  color: $white-regular;
+  background: $yellow-regular;
+  border-color: darken($yellow-regular, $btn-hover-darken);
   &:hover{
-    background: darken($btn-yellow, $btn-hover-darken);
+    background: darken($yellow-regular, $btn-hover-darken);
   }
 }
 
@@ -108,6 +108,6 @@
 
   &:hover{
     background: transparent;
-    border-bottom: 1px solid #4082a0;
+    border-bottom: 1px solid $blue-regular;
   }
 }

@@ -23,7 +23,7 @@
 }
 
 .btn-get-started{
-  animation:    fadeIn .8s ease-in .6s 1, 
+  animation:  fadeIn .8s ease-in .6s 1, 
              slideInUp .8s ease-in .6s;
   animation-fill-mode: forwards; // stay in last detected state (for opacity)
   background-color: $white-regular;

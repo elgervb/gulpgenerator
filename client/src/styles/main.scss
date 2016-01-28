@@ -10,12 +10,16 @@
 @import 'partials/animations';
 @import 'partials/buttons';
 
+
+$gulp-red: #CF4646;
+
 @import 'modules/index';
 @import 'modules/task';
 @import 'modules/new';
 @import 'modules/gulpfile';
 
 @import 'modules/messagebox';
+
 
 body{
   background-color: $gulp-red;

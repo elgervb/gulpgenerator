@@ -8,36 +8,36 @@ html, body, .full-screen{
   height: 100%;
 }
 body, input, textarea, select{
-  color:  $font-color;
-  font: 1em "Open Sans",Helvetica,Arial,sans-serif;
+  color:  $black-regular;
+  font: 1em $default-font-stack;
 }
 ::placeholder{
-    color:#666;
+    color:$grey-dark;
     font-style: italic;
 }
 a{
   background:transparent;
   border: 1px solid transparent;
-  color: #4082A0;
+  color: $blue-regular;
   cursor: pointer;
   text-decoration: none;
   vertical-align:baseline;
-  transition: all .3s ease;
+  transition: all $animation-duration $animation-easing;
 }
 p a:hover{
-  border-bottom: 1px solid #4082A0;
+  border-bottom: 1px solid $blue-regular;
 }
 img{
   max-width: 100%;
 }
-p{
+p {
   padding-bottom: 15px;
 }
-ol{
+ol {
   margin-left: 18px;
   padding-bottom: 15px;
 }
-ul{
+ul {
   list-style: none;
 }
 h1 {
@@ -50,22 +50,22 @@ h2 {
     font-weight: 300;
     padding: 0 0 15px;
 }
-h3{
+h3 {
   font-size: 1.4em;
   font-weight: 300;
   padding: 0 0 15px;
 }
-h4{
+h4 {
   font-size: 1.2em;
   font-weight: 300;
   padding: 0 0 15px;
 }
-h5{
+h5 {
   font-size: 1.1em;
   font-weight: 300;
   padding: 0 0 15px;
 }
-h6{
+h6 {
   font-size: 1.0em;
   font-weight: 300;
   padding: 0 0 15px;
