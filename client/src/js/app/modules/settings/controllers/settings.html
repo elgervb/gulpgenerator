@@ -2,6 +2,7 @@
 
 <form class="new-gulpfile" name="form">
   <h1 ng-show="settings.name">{{settings.name}}  v{{settings.version | semver}}</h1>
+  <h1 ng-hide="settings.name">...</h1>
   
   <div ui-view> </div>
   
