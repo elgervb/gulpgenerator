@@ -3,6 +3,8 @@
  */
 html{
   font-size: $base-font-size;
+  -webkit-user-select: none; /* disable selection/Copy of UIWebView */
+  -webkit-touch-callout: none; /* disable the IOS popup when long-press on a link */
 }
 body, input, textarea, select{
   color:  $black-regular;
